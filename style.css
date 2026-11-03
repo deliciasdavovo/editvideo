@@ -1,1 +1,21 @@
 :root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#24362e;background:#f7f7f2}*{box-sizing:border-box}body{margin:0}header{background:#193c32;color:white;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:22px;font-weight:800}.brand small{display:block;font-size:11px;font-weight:400;opacity:.75}button{background:#285a48;color:white;border:0;border-radius:9px;padding:11px 15px;cursor:pointer;font:inherit}button:hover{filter:brightness(1.08)}button.secondary{background:#e5ebe5;color:#234334}main{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:calc(100vh - 75px)}aside{padding:22px 14px;background:#edf0e9;border-right:1px solid #dce3d8}aside h2,.scenehead h2{font-size:17px}.workspace{padding:28px;max-width:1250px;width:100%;margin:auto}#empty{text-align:center;padding:70px 10px;color:#526458}.project{display:block;width:100%;margin:8px 0;text-align:left;background:transparent;color:#2d483a;overflow-wrap:anywhere}.project.active{background:#d3e2d5;font-weight:700}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}#projectTitle{font-size:24px;font-weight:750;min-width:0;flex:1}input,textarea{font:inherit;border:1px solid #cbd6ca;border-radius:8px;padding:10px;background:white;color:#22362c}textarea{width:100%;resize:vertical;line-height:1.55}label{font-weight:600;display:block;margin-bottom:8px}.actions{display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin:12px 0 24px}.actions label{font-size:12px;margin:0}.actions input{display:block;width:85px;margin-top:5px}.scenehead{display:flex;align-items:center;gap:14px}.scenes{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:15px}.scene{background:white;border:1px solid #dce4d9;border-radius:13px;padding:12px;box-shadow:0 2px 8px #102e1710}.scene .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;font-size:12px;font-weight:700}.preview{width:100%;aspect-ratio:9/12;background:#e8ede6;border-radius:8px;object-fit:contain;display:flex;align-items:center;justify-content:center;color:#627669}.scene textarea{min-height:85px;font-size:13px;margin-top:10px}.scene .controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.scene .controls button{padding:6px 9px;font-size:12px}.scene input[type=file]{width:100%;font-size:12px;margin-top:8px}.scene input[type=number]{width:65px;padding:5px}.scene .notes{margin-top:8px;font-size:12px;width:100%}#notice{color:#506954;font-size:13px}@media(max-width:720px){main{display:block}aside{border:0;padding:12px}#projects{display:flex;gap:7px;overflow:auto}.project{min-width:130px}.workspace{padding:17px}header{padding:14px}.brand{font-size:18px}.top{align-items:stretch;flex-direction:column}.scenes{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}}
+
+/* Leitura e organização visual das cenas */
+.workspace{max-width:1440px}
+#projectTitle{font-size:clamp(24px,3vw,32px);line-height:1.25;letter-spacing:-.025em}
+#script{font-size:17px;line-height:1.8;padding:17px 18px;min-height:190px}
+.scenehead{margin:28px 0 16px;justify-content:space-between}
+.scenehead h2{font-size:23px;margin:0}
+#sceneCount{font-size:13px;color:#54705f;font-weight:700}
+.scenes{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;align-items:start}
+.scene{padding:16px;border-radius:16px;border-color:#d1ded3}
+.scene .meta{font-size:14px;margin-bottom:12px;color:#254d3b}
+.scene .preview{aspect-ratio:9/10}
+.scene textarea{font-size:16px;line-height:1.65;min-height:135px;margin-top:14px;padding:13px;font-weight:500;resize:vertical;background:#fcfdfb;border:1px solid #c7d7cb}
+.scene .notes{font-size:14px;padding:11px}
+.scene .controls{margin-top:13px;gap:9px}
+.scene .controls label{font-size:12px;color:#53695b}
+.scene .controls button{font-size:15px;min-width:34px;min-height:34px}
+.project{font-size:15px;padding:13px 12px;line-height:1.35}
+#notice{min-height:18px}
+@media(max-width:720px){.workspace{padding:16px}.scenes{grid-template-columns:1fr;gap:18px}.scene{padding:16px}.scene .preview{aspect-ratio:16/10}.scene textarea{font-size:17px;min-height:120px}.scenehead h2{font-size:21px}#script{font-size:17px;min-height:180px}.actions{gap:12px}.actions button{flex:1}}
