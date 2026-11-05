@@ -41,3 +41,20 @@ $('scenes').addEventListener('change',()=>setTimeout(updatePreview,50));
 $('scenes').addEventListener('click',()=>setTimeout(updatePreview,0));
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&previewPlaying)stopPreview()});
 updatePreview();
+
+
+/* Organização livre: imagens em lote, roteiro preservado */
+$('bulkImages').addEventListener('change',async e=>{
+ const p=current(),files=Array.from(e.target.files||[]).filter(f=>f.type.startsWith('image/'));if(!p||!files.length)return;
+ const images=await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)})));
+ for(const image of images)p.scenes.push({id:uid(),text:'',duration:Number(p.seconds)||3,notes:'',image});
+ save();renderScenes();e.target.value='';$('notice').textContent=images.length+' imagens adicionadas. Arraste para organizar a ordem.';
+});
+let dragScene=null;
+$('scenes').addEventListener('dragstart',e=>{const card=e.target.closest('.scene');if(!card)return;dragScene=Number(card.dataset.index);card.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
+$('scenes').addEventListener('dragover',e=>{if(dragScene===null)return;e.preventDefault();e.dataTransfer.dropEffect='move'});
+$('scenes').addEventListener('drop',e=>{e.preventDefault();const target=e.target.closest('.scene');if(!target||dragScene===null)return;const to=Number(target.dataset.index),p=current();if(dragScene!==to){const [item]=p.scenes.splice(dragScene,1);p.scenes.splice(to,0,item);save();renderScenes()}dragScene=null});
+$('scenes').addEventListener('dragend',()=>{dragScene=null;document.querySelectorAll('.dragging').forEach(el=>el.classList.remove('dragging'))});
+const sceneCards=renderScenes;
+renderScenes=function(){sceneCards();document.querySelectorAll('#scenes .scene').forEach(card=>{card.draggable=true;card.title='Arraste este cartão para mudar a ordem das imagens';const textarea=card.querySelector('textarea');if(textarea)textarea.placeholder='Legenda opcional (não altera o roteiro original)'});updatePreview()};
+renderScenes();
