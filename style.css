@@ -50,3 +50,14 @@ aside{background:#eaf1ed}
 .player-buttons button{min-height:44px}
 .player-hint{font-size:12px;line-height:1.6;color:#72877a;margin:0}
 @media(max-width:720px){.player-section{padding:15px;border-radius:16px}.player-heading{align-items:start;flex-direction:column}.player-layout{flex-direction:column;gap:17px}.player-screen{width:min(100%,290px)}.player-controls{width:100%;gap:11px}.player-caption{font-size:23px}.player-heading h2{font-size:21px}}
+
+
+.image-organizer{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 22px;margin:22px 0 10px;border-radius:18px;background:#e0efe6;border:1px solid #b8d7c5}
+.image-organizer h2{font-size:21px;margin:0 0 5px;color:#1b513e}
+.image-organizer p{margin:0;color:#537565;font-size:13px;line-height:1.55}
+.upload-all{background:#236c53;color:white;border-radius:12px;padding:14px 17px;cursor:pointer;white-space:nowrap;font-size:14px;font-weight:800;margin:0}
+.scene[draggable=true]{cursor:grab}
+.scene.dragging{opacity:.4;outline:3px dashed #287f5b}
+.scene .meta:after{content:'⋮⋮ Arrastar';font-size:11px;color:#648875;margin-left:auto;margin-right:10px}
+.scene textarea::placeholder{color:#8da398;font-weight:400}
+@media(max-width:720px){.image-organizer{flex-direction:column;align-items:stretch;padding:17px}.upload-all{text-align:center}.scene .meta:after{content:'Use ↑ ↓ para ordenar'}}
