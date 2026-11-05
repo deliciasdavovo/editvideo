@@ -61,3 +61,10 @@ aside{background:#eaf1ed}
 .scene .meta:after{content:'⋮⋮ Arrastar';font-size:11px;color:#648875;margin-left:auto;margin-right:10px}
 .scene textarea::placeholder{color:#8da398;font-weight:400}
 @media(max-width:720px){.image-organizer{flex-direction:column;align-items:stretch;padding:17px}.upload-all{text-align:center}.scene .meta:after{content:'Use ↑ ↓ para ordenar'}}
+
+
+.audio-organizer{display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:18px 22px;margin:20px 0 12px;background:#f0e9df;border:1px solid #e2d3bd;border-radius:18px}
+.audio-organizer>div{flex:1;min-width:180px}.audio-organizer h2{margin:0 0 5px;font-size:20px;color:#55442c}.audio-organizer p{font-size:13px;color:#766751;margin:0;line-height:1.5}
+.audio-organizer audio{width:100%;max-width:480px}.audio-organizer audio[hidden]{display:none}
+#audioName{font-size:12px;color:#786b5a;overflow-wrap:anywhere}
+@media(max-width:720px){.audio-organizer{padding:17px;flex-direction:column;align-items:stretch}.audio-organizer .upload-all{text-align:center}}
