@@ -51,7 +51,7 @@ def eye(c, x, y, kind, col, rx=7.0, ry=9.5, look=(0, 0), wet=False, side=1):
     ink(c, [(ex - rx * 1.25, top + 2.5 * k), (ex, top - 0.8 * k), (ex + rx * 1.25, top + 2.5 * k)], 2.4 * k, col, 0.9, 1.4 * k)
 
 
-def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=6.4, ry=4.6):
+def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.0):
     """Olho amendoado pequeno e delicado (traço de livro ilustrado): ponto escuro,
     pálpebra superior em nanquim, brilho mínimo."""
     if kind in ('happy', 'closed'):
@@ -61,7 +61,7 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=6.4, ry=4.
             pts = [(x - rx * 1.15, y - 0.5), (x, y + ry * 0.5), (x + rx * 1.15, y - 0.5)]
         c.drawPath(tp(pts, 2.6, 2.0), skia.Paint(AntiAlias=True, Color=C(col)))
         return
-    sy = {'open': 1.0, 'wide': 1.3, 'half': 0.7, 'down': 0.55, 'narrow': 0.5}[kind]
+    sy = {'open': 1.0, 'wide': 1.25, 'half': 0.95, 'down': 0.9, 'narrow': 0.8}[kind]
     ex, ey = x + look[0] * 0.6, y + look[1] * 0.5
     ic = (ex - side * rx, ey + 0.6)              # canto interno
     oc = (ex + side * rx * 1.08, ey - 1.0)        # canto externo levemente acima
@@ -69,15 +69,26 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=6.4, ry=4.
     bot = [(ex + side * rx * 0.3, ey + ry * sy * 0.62), (ex - side * rx * 0.4, ey + ry * sy * 0.55)]
     shape = smooth(top + bot, tension=0.5)
     if kind in ('half', 'down', 'narrow'):
-        lid_y = ey - ry * sy * (0.1 if kind == 'half' else -0.15)
+        lid_y = ey - ry * sy * (0.5 if kind == 'half' else 0.3)
         shape = inter(shape, rr(ex - 20, lid_y, ex + 20, ey + 20, 1))
     else:
         lid_y = None
-    flat(c, shape, col)
-    hl = 1.5 if not wet else 2.1
-    flat(c, circ(ex - side * rx * 0.15, ey - ry * sy * 0.3, hl), (255, 252, 244), 0.9)
+    # branco do olho + íris castanha + pupila (recortados dentro do amendoado)
+    flat(c, shape, (250, 246, 238))
+    c.save(); c.clipPath(shape, doAntiAlias=True)
+    flat(c, ell(ex, ey + ry * sy * 0.1, rx * 1.3, ry * sy * 0.5), (220, 206, 196), 0.35, blur=1)  # sombra da pálpebra no branco
+    ix, iy = ex + look[0] * 0.5, ey - ry * sy * 0.05 + look[1] * 0.4
+    ir = ry * 1.02
+    flat(c, circ(ix, iy, ir), (92, 58, 38))
+    flat(c, circ(ix, iy + ir * 0.25, ir * 0.75), (120, 80, 50), 0.6)
+    flat(c, circ(ix, iy, ir * 0.5), (22, 16, 16))
+    hl = 1.6 if not wet else 2.2
+    flat(c, circ(ix - side * ir * 0.35, iy - ir * 0.4, hl), (255, 252, 244), 0.95)
     if wet:
-        flat(c, ell(ex, ey + ry * sy * 0.55, rx * 0.8, 1.4), (200, 230, 240), 0.8)
+        flat(c, ell(ex, ey + ry * sy * 0.5, rx * 0.9, 1.4), (200, 230, 240), 0.8)
+    c.restore()
+    # linha de baixo, bem leve
+    ink(c, [(ic[0] + side * 1.5, ic[1] + 0.6), (ex, ey + ry * sy * 0.6 + 0.6), (oc[0] - side * 1.0, oc[1] + 1.2)], 1.0, col, 0.35, 0.6)
     # pálpebra superior (traço único, afina no canto externo)
     if lid_y is None:
         lid = [(ic[0] - side * 0.5, ic[1] - 0.4), (ex - side * rx * 0.3, ey - ry * sy - 0.8),
