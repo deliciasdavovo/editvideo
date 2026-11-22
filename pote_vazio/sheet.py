@@ -51,7 +51,7 @@ cols = [
          ficha=['Quem é: o menino que faz tudo florir.', 'Quer: ser escolhido pelo imperador.',
                 'Defeito: o orgulho do dom vira vergonha quando a semente falha.',
                 'Jeito: rápido e saltitante; encolhe quando sente vergonha. Gesto: abraça o pote contra o peito.'],
-         why='Círculo e 3 cabeças: criança gentil. Verde-azulado, complementar à luz dourada, para se destacar; o vermelho da fita e da faixa é o acento. O remendo conta que a família é simples.'),
+         why='Círculo e ~2,6 cabeças, fofinho como livro infantil japonês: cabelo okappa, bochechas cheias, olhos grandes e baixos. Verde-azulado, complementar à luz dourada, para se destacar; o vermelho da fita e da faixa é o acento. O remendo conta que a família é simples.'),
     dict(fn=ch.pai, x=900, sc=SC, name='O pai', shape='quadrado',
          pal=[ch.PAI['tunic'], ch.PAI['skin'], ch.PAI['pants'], ch.PAI['straw'], ch.PAI['rope']],
          ficha=['Quem é: lavrador calado e firme.', 'Quer: que o filho não tenha vergonha da verdade.',
@@ -112,9 +112,9 @@ heads += [(ch.imp_head, 'imp', e, n) for e, n in [('sereno', 'sereno'), ('testa_
                                                  ('pergunta', 'pergunta'), ('sorriso', 'sorriso')]]
 heads += [(ch.pai_head, 'pai', e, n) for e, n in [('terno', 'terno'), ('apoio', 'apoio')]]
 heads += [(ch.pardal, 'bird', e, n) for e, n in [('curioso', 'curioso'), ('decepcionado', 'decepcionado')]]
-CENTER = {'ping': (0, -246), 'imp': (0, -392), 'pai': (0, -340), 'bird': (0, -26)}
+CENTER = {'ping': (0, -262), 'imp': (0, -392), 'pai': (0, -340), 'bird': (0, -26)}
 SCH = {'ping': 1.15, 'imp': 0.95, 'pai': 1.05, 'bird': 2.2}
-SCH = {'ping': 1.75, 'imp': 1.35, 'pai': 1.45, 'bird': 3.0}
+SCH = {'ping': 1.5, 'imp': 1.35, 'pai': 1.45, 'bird': 3.0}
 rows = [[h for h in heads if h[1] == 'ping'], [h for h in heads if h[1] != 'ping']]
 ROWY = [2080, 2560]
 group_x = {}

@@ -51,7 +51,7 @@ def eye(c, x, y, kind, col, rx=7.0, ry=9.5, look=(0, 0), wet=False, side=1):
     ink(c, [(ex - rx * 1.25, top + 2.5 * k), (ex, top - 0.8 * k), (ex + rx * 1.25, top + 2.5 * k)], 2.4 * k, col, 0.9, 1.4 * k)
 
 
-def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.0):
+def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.0, cute=False):
     """Olho amendoado pequeno e delicado (traço de livro ilustrado): ponto escuro,
     pálpebra superior em nanquim, brilho mínimo."""
     if kind in ('happy', 'closed'):
@@ -82,8 +82,10 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.
     flat(c, circ(ix, iy, ir), (92, 58, 38))
     flat(c, circ(ix, iy + ir * 0.25, ir * 0.75), (120, 80, 50), 0.6)
     flat(c, circ(ix, iy, ir * 0.5), (22, 16, 16))
-    hl = 1.6 if not wet else 2.2
+    hl = (1.6 if not wet else 2.2) * (1.6 if cute else 1.0)
     flat(c, circ(ix - side * ir * 0.35, iy - ir * 0.4, hl), (255, 252, 244), 0.95)
+    if cute:
+        flat(c, circ(ix + side * ir * 0.35, iy + ir * 0.4, hl * 0.5), (255, 252, 244), 0.85)
     if wet:
         flat(c, ell(ex, ey + ry * sy * 0.5, rx * 0.9, 1.4), (200, 230, 240), 0.8)
     c.restore()
@@ -164,9 +166,9 @@ def tear_streams(c, pts_l, pts_r):
 PING_EXPR = {
     'neutro':      dict(eyes='open', brows=(0, 0), mouth='smile', blush=0.45),
     'encanto':     dict(eyes='wide', brows=(-5, -4), mouth='smile_open', blush=0.55),
-    'concentrado': dict(eyes='half', brows=(1, 1), mouth='tongue', blush=0.4, look=(1.5, 2)),
-    'decepcionado': dict(eyes='half', brows=(-6, 3), mouth='flat_down', blush=0.35, look=(0, 2)),
-    'vergonha':    dict(eyes='down', brows=(-9, 4), mouth='wobble', blush=1.4, look=(-2, 4), tilt=-9),
+    'concentrado': dict(eyes='open', brows=(1, 1), mouth='tongue', blush=0.4, look=(2, 4)),
+    'decepcionado': dict(eyes='open', brows=(-8, 5), mouth='flat_down', blush=0.35, look=(0, 4)),
+    'vergonha':    dict(eyes='open', brows=(-9, 5), mouth='wobble', blush=1.5, look=(-4, 5), tilt=-9),
     'choro':       dict(eyes='open', brows=(-9, 5), mouth='cry', blush=0.8, wet=True, tears=True, look=(0, 1)),
     'coragem':     dict(eyes='open', brows=(0, -2), mouth='firm', blush=0.6, wet=True),
     'alegria':     dict(eyes='happy', brows=(-5, -3), mouth='smile_open', blush=0.75),
@@ -174,58 +176,60 @@ PING_EXPR = {
 
 
 def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.0, nod=0.0):
+    """Ping fofinho, estilo livro infantil japonês: cabeça grande e redonda, bochechas cheias,
+    cabelo okappa (franja reta), olhos grandes e baixos, nariz e boca pequenos."""
     e = PING_EXPR[expr]
     P = PING
     hx, hy = 0, -238
     c.save()
     c.rotate(e.get('tilt', 0), hx, hy + 40)
     c.translate(0, nod)
-    # coque + fita (atrás)
-    layer(c, circ(hx + 2, hy - 58, 15), P['hair'], depth=0.15, seed=1)
+    # cabeça maior (≈2,6 cabeças de altura total)
+    c.translate(0, -190); c.scale(1.2, 1.2); c.translate(0, 190)
+    # volume de trás do cabelo
+    back = smooth([(hx - 55, hy + 22), (hx - 57, hy - 16), (hx - 42, hy - 44), (hx, hy - 52), (hx + 42, hy - 44),
+                   (hx + 57, hy - 16), (hx + 55, hy + 22)], tension=0.45)
+    layer(c, back, P['hair'], depth=0.18, seed=1)
+    # orelhas pequenas
     for s in (-1, 1):
-        layer(c, tp([(hx + 2, hy - 52), (hx + 2 + s * 14, hy - 46), (hx + 2 + s * 22, hy - 34)], 7, 3),
-              P['sash'], depth=0.1, seed=2 + s)
-    layer(c, ell(hx + 2, hy - 50, 9, 6), P['sash'], depth=0.1, seed=4)
-    # orelhas
-    for s in (-1, 1):
-        layer(c, ell(hx + s * 50, hy + 4, 9, 11), mul(P['skin'], 0.96), depth=0.1, seed=5 + s)
-        flat(c, ell(hx + s * 50, hy + 5, 4, 6), mul(P['skin'], 0.82), 0.6)
-    # rosto (redondo, bochecha cheia)
+        layer(c, ell(hx + s * 52, hy + 12, 8, 10), mul(P['skin'], 0.96), depth=0.1, seed=5 + s)
+        flat(c, ell(hx + s * 52, hy + 13, 3.5, 5), mul(P['skin'], 0.82), 0.6)
+    # rosto: redondo, mais largo embaixo (bochechas de bebê)
     pts = []
-    for i in range(28):
-        a = i / 28 * 2 * math.pi
-        r_x, r_y = 51, 48
-        bulge = 1 + 0.06 * max(0, math.sin(a)) * abs(math.cos(a)) * 2
-        pts.append((hx + math.cos(a) * r_x * bulge, hy + 4 + math.sin(a) * r_y * (1.02 if math.sin(a) > 0 else 1)))
-    face = smooth(pts)
-    layer(c, face, P['skin'], depth=0.2, seed=7)
-    # blush
+    for i in range(32):
+        a = i / 32 * 2 * math.pi
+        sx = 53 * (1 + 0.07 * max(0, math.sin(a)))
+        sy = 49 * (1.04 if math.sin(a) > 0 else 1)
+        pts.append((hx + math.cos(a) * sx, hy + 6 + math.sin(a) * sy))
+    layer(c, smooth(pts), P['skin'], depth=0.2, seed=7)
+    # bochechas rosadas grandes
     for s in (-1, 1):
-        flat(c, ell(hx + s * 31, hy + 20, 11, 7), P['blush'], 0.35 * e['blush'], blur=5)
+        flat(c, ell(hx + s * 30, hy + 28, 13, 9), P['blush'], 0.42 * min(1.6, 0.6 + e['blush']), blur=6)
     look = e.get('look', (0, 0))
     for s in (-1, 1):
-        almond_eye(c, hx + s * 19, hy + 6, 'closed' if blink > 0.5 else e['eyes'], P['eye'], side=s, look=look, wet=e.get('wet', False))
-    # nariz botão
-    flat(c, ell(hx + 1, hy + 18, 4.5, 3.6), mul(P['skin'], 0.86), 0.9)
-    flat(c, circ(hx - 0.5, hy + 16.8, 1.4), (255, 240, 225), 0.7)
-    mouth(c, hx + 1, hy + 31, mouth_kind or e['mouth'], op=mouth_open)
+        almond_eye(c, hx + s * 20, hy + 14, 'closed' if blink > 0.5 else e['eyes'], P['eye'], side=s, look=look,
+                   wet=e.get('wet', False), rx=9.6, ry=8.0, cute=True)
+    # nariz mínimo
+    flat(c, ell(hx, hy + 25, 2.8, 2.2), mul(P['skin'], 0.84), 0.9)
+    mouth(c, hx, hy + 36, mouth_kind or e['mouth'], s=0.78, op=mouth_open)
     if e.get('tears'):
-        tear_streams(c, [(hx - 21, hy + 14), (hx - 24, hy + 26), (hx - 22, hy + 38)],
-                     [(hx + 21, hy + 14), (hx + 24, hy + 26), (hx + 23, hy + 36)])
-    # cabelo (franja recortada) por cima
-    hair = smooth([(hx - 53, hy + 14), (hx - 56, hy - 18), (hx - 40, hy - 46), (hx, hy - 56), (hx + 40, hy - 46),
-                   (hx + 56, hy - 18), (hx + 53, hy + 14), (hx + 46, hy + 4), (hx + 44, hy - 12), (hx + 32, hy - 16),
-                   (hx + 22, hy - 10), (hx + 10, hy - 18), (hx - 2, hy - 11), (hx - 14, hy - 19),
-                   (hx - 27, hy - 11), (hx - 40, hy - 17), (hx - 45, hy - 2), (hx - 47, hy + 6)], tension=0.42)
+        tear_streams(c, [(hx - 22, hy + 22), (hx - 25, hy + 32), (hx - 23, hy + 44)],
+                     [(hx + 22, hy + 22), (hx + 25, hy + 32), (hx + 24, hy + 42)])
+    # okappa: franja reta + laterais retas na altura do queixo
+    hair = smooth([(hx - 57, hy + 26), (hx - 59, hy - 14), (hx - 44, hy - 44), (hx, hy - 54), (hx + 44, hy - 44),
+                   (hx + 59, hy - 14), (hx + 57, hy + 26), (hx + 46, hy + 26), (hx + 44, hy - 2), (hx + 40, hy - 6),
+                   (hx + 20, hy - 5), (hx, hy - 4), (hx - 20, hy - 5), (hx - 40, hy - 6), (hx - 44, hy - 2), (hx - 46, hy + 26)],
+                  tension=0.35)
     layer(c, hair, P['hair'], depth=0.18, seed=9)
-    # mechas finas em tom diferente
-    for k, (x0, x1, y1) in enumerate([(-30, -42, -10), (-12, -20, -12), (6, 0, -10), (24, 18, -12), (38, 44, -8),
-                                      (-44, -52, 6), (46, 52, 4)]):
-        ink(c, [(hx + x0 * 0.6, hy - 50), (hx + (x0 + x1) / 2, hy - 30), (hx + x1, hy + y1)], 2.6, P['hair_hi'], 0.75, 0.8)
-    # sobrancelhas
+    # brilho do cabelo (arco) e mechas finas
+    c.drawPath(tp([(hx - 34, hy - 30), (hx - 10, hy - 41), (hx + 16, hy - 41), (hx + 34, hy - 32)], 5, 3),
+               skia.Paint(AntiAlias=True, Color=C(P['hair_hi'], 0.7)))
+    for x0 in (-36, -22, -8, 6, 20, 34):
+        ink(c, [(hx + x0 * 0.7, hy - 47), (hx + x0 * 0.95, hy - 26), (hx + x0, hy - 6)], 1.6, P['hair_hi'], 0.6, 0.6)
+    # sobrancelhas curtinhas aparecendo logo abaixo da franja
     bi, bo = e['brows']
     for s in (-1, 1):
-        brow(c, hx + s * 19, hy - 9, bi, bo, s, (30, 24, 28), w=3.8, L=15)
+        brow(c, hx + s * 20, hy + 1, bi * 0.6, bo * 0.6, s, (40, 30, 34), w=3.0, L=11)
     c.restore()
 
 
