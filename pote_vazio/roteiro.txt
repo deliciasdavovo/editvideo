@@ -1,0 +1,13 @@
+[B1 NARRADOR] Cem crianças trouxeram flores lindas ao imperador, e ele não sorriu para nenhuma. Só sorriu para um menino que chorava com um vaso vazio. Esse é o fim da história de Ping. Um ano antes, tudo que Ping plantava florescia.
+[B2 NARRADOR] O imperador era velho, sem filhos, e amava flores. Por isso, deu uma semente a cada criança.
+[B2 IMPERADOR] Quem me trouxer a flor mais bonita em um ano será o próximo imperador.
+[B3 NARRADOR] Ping plantou e regou todo dia. Nada nasceu. Trocou a terra. Nada. Passou para um vaso maior. Nada.
+[B4 NARRADOR] Na primavera, as crianças passaram com flores enormes. Ping teve vergonha.
+[B4 PING] Pai, eu não posso levar um vaso vazio.
+[B4 NARRADOR] Mas o pai disse que Ping fez o seu melhor, e isso bastava.
+[B5 NARRADOR] Então Ping levou o vaso vazio ao palácio. O imperador passou pelas flores de testa franzida, e parou em Ping.
+[B5 IMPERADOR] Por que você trouxe um vaso vazio?
+[B5 PING] Eu cuidei da sua semente todo dia, mas ela não nasceu.
+[B6 IMPERADOR] Eu cozinhei todas as sementes. Nenhuma podia nascer.
+[B6 NARRADOR] As outras flores vinham de sementes trocadas. Só Ping teve coragem de trazer a verdade.
+[B7 NARRADOR] O menino que fazia tudo florir virou imperador com um vaso sem nenhuma flor.
