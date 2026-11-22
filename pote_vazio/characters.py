@@ -51,6 +51,42 @@ def eye(c, x, y, kind, col, rx=7.0, ry=9.5, look=(0, 0), wet=False, side=1):
     ink(c, [(ex - rx * 1.25, top + 2.5 * k), (ex, top - 0.8 * k), (ex + rx * 1.25, top + 2.5 * k)], 2.4 * k, col, 0.9, 1.4 * k)
 
 
+def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=6.4, ry=4.6):
+    """Olho amendoado pequeno e delicado (traço de livro ilustrado): ponto escuro,
+    pálpebra superior em nanquim, brilho mínimo."""
+    if kind in ('happy', 'closed'):
+        if kind == 'happy':
+            pts = [(x - rx * 1.15, y + 1.5), (x, y - ry * 0.9), (x + rx * 1.15, y + 1.5)]
+        else:
+            pts = [(x - rx * 1.15, y - 0.5), (x, y + ry * 0.5), (x + rx * 1.15, y - 0.5)]
+        c.drawPath(tp(pts, 2.6, 2.0), skia.Paint(AntiAlias=True, Color=C(col)))
+        return
+    sy = {'open': 1.0, 'wide': 1.3, 'half': 0.7, 'down': 0.55, 'narrow': 0.5}[kind]
+    ex, ey = x + look[0] * 0.6, y + look[1] * 0.5
+    ic = (ex - side * rx, ey + 0.6)              # canto interno
+    oc = (ex + side * rx * 1.08, ey - 1.0)        # canto externo levemente acima
+    top = [(ic[0], ic[1]), (ex - side * rx * 0.3, ey - ry * sy), (ex + side * rx * 0.45, ey - ry * sy * 0.9), oc]
+    bot = [(ex + side * rx * 0.3, ey + ry * sy * 0.62), (ex - side * rx * 0.4, ey + ry * sy * 0.55)]
+    shape = smooth(top + bot, tension=0.5)
+    if kind in ('half', 'down', 'narrow'):
+        lid_y = ey - ry * sy * (0.1 if kind == 'half' else -0.15)
+        shape = inter(shape, rr(ex - 20, lid_y, ex + 20, ey + 20, 1))
+    else:
+        lid_y = None
+    flat(c, shape, col)
+    hl = 1.5 if not wet else 2.1
+    flat(c, circ(ex - side * rx * 0.15, ey - ry * sy * 0.3, hl), (255, 252, 244), 0.9)
+    if wet:
+        flat(c, ell(ex, ey + ry * sy * 0.55, rx * 0.8, 1.4), (200, 230, 240), 0.8)
+    # pálpebra superior (traço único, afina no canto externo)
+    if lid_y is None:
+        lid = [(ic[0] - side * 0.5, ic[1] - 0.4), (ex - side * rx * 0.3, ey - ry * sy - 0.8),
+               (ex + side * rx * 0.5, ey - ry * sy * 0.95 - 0.6), (oc[0] + side * 1.8, oc[1] - 1.2)]
+    else:
+        lid = [(ic[0] - side * 0.5, lid_y + 0.8), (ex, lid_y - 0.6), (oc[0] + side * 1.8, lid_y - 0.4)]
+    c.drawPath(tp(lid, 2.4, 1.0), skia.Paint(AntiAlias=True, Color=C(col)))
+
+
 def brow(c, x, y, inner_dy, outer_dy, side, col, w=3.6, L=14, thick=None):
     """side=-1 olho esquerdo da tela. inner = perto do nariz."""
     xi = x - side * L * 0.45
@@ -140,7 +176,7 @@ def ping_head(c, expr='neutro', t=0.0):
         flat(c, ell(hx + s * 31, hy + 20, 11, 7), P['blush'], 0.35 * e['blush'], blur=5)
     look = e.get('look', (0, 0))
     for s in (-1, 1):
-        eye(c, hx + s * 19, hy + 6, e['eyes'], P['eye'], look=look, wet=e.get('wet', False), side=s)
+        almond_eye(c, hx + s * 19, hy + 6, e['eyes'], P['eye'], side=s, look=look, wet=e.get('wet', False))
     # nariz botão
     flat(c, ell(hx + 1, hy + 18, 4.5, 3.6), mul(P['skin'], 0.86), 0.9)
     flat(c, circ(hx - 0.5, hy + 16.8, 1.4), (255, 240, 225), 0.7)
