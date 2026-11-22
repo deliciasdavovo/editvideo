@@ -1,0 +1,8 @@
+out/
+__pycache__/
+audio/mix.wav
+audio/music.wav
+audio/amb.wav
+audio/sfx.wav
+audio/voice.wav
+audio/urls.json
