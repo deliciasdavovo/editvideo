@@ -1,3 +1,4 @@
 fonts/
 *.tgz
 *.url
+__pycache__/
