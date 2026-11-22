@@ -91,6 +91,15 @@ def child(c, x, y, s, seed=0, gray=0.0, part='all', look_down=False):
         layer(c, rr(x - 30 * s, y - 150 * s, x + 30 * s, y - 40 * s, 14 * s), tunic, depth=0.15, seed=seed)
         for k in (-1, 1):
             layer(c, rr(x + k * 14 * s - 9 * s, y - 50 * s, x + k * 14 * s + 9 * s, y, 6 * s), gray_of((200, 190, 170), gray * 0.6), depth=0.1, seed=seed + k)
+    if part == 'back':
+        layer(c, rr(x - 30 * s, y - 150 * s, x + 30 * s, y - 40 * s, 14 * s), tunic, depth=0.15, seed=seed)
+        for k in (-1, 1):
+            layer(c, rr(x + k * 14 * s - 9 * s, y - 50 * s, x + k * 14 * s + 9 * s, y, 6 * s), gray_of((200, 190, 170), gray * 0.6), depth=0.1, seed=seed + k)
+        for k in (-1, 1):
+            layer(c, ell(x + k * 36 * s, y - 182 * s, 6 * s, 8 * s), skin, depth=0.1, seed=seed + 5 + k)
+        layer(c, circ(x, y - 184 * s, 38 * s), (36, 30, 38), depth=0.15, seed=seed + 4)
+        ink(c, [(x - 10 * s, y - 214 * s), (x - 4 * s, y - 190 * s), (x - 8 * s, y - 160 * s)], 2 * s, (74, 70, 88), 0.6)
+        return
     if part in ('head', 'all'):
         hy = y - 182 * s + (6 * s if look_down else 0)
         layer(c, circ(x, hy, 36 * s), skin, depth=0.15, seed=seed + 3)
@@ -258,3 +267,61 @@ def blurred(c, draw_fn, sigma):
     c.saveLayer(None, skia.Paint(ImageFilter=skia.ImageFilters.Blur(sigma, sigma)))
     draw_fn(c)
     c.restore()
+
+
+# ------------------------------------------------------------ praça (exterior do palácio)
+def plaza_bg(c, t=0.0):
+    c.drawRect(skia.Rect(0, 0, W, H), skia.Paint(Shader=skia.GradientShader.MakeLinear(
+        [skia.Point(0, 0), skia.Point(0, 900)], [C((150, 196, 222)), C((238, 224, 190))])))
+    c.drawPaint(skia.Paint(Shader=pl.fiber_shader(1.0), BlendMode=skia.BlendMode.kMultiply, Alphaf=0.5))
+    for k, (x, y, r) in enumerate([(160, 230, 60), (820, 180, 80)]):
+        for j in range(3):
+            layer(c, ell(x + j * r * 0.7 + (t * 6) % 40, y + (j % 2) * 10, r, r * 0.55), (250, 246, 236), depth=0.2, seed=k * 3 + j, rim=False)
+    layer(c, smooth([(-80, 700), (300, 610), (700, 650), (1160, 590), (1160, 900), (-80, 900)], tension=0.4), (120, 160, 110), depth=0.15)
+    # fachada do palácio
+    layer(c, rr(140, 420, 940, 760, 6), (176, 52, 46), depth=0.3, seed=31)
+    for x in range(200, 900, 110):
+        layer(c, rr(x, 520, x + 36, 760, 4), (150, 40, 38), depth=0.15, seed=x)
+    for k, (y0, w0) in enumerate([(380, 900), (300, 720)]):
+        roof = poly([(540 - w0 / 2 - 40, y0 + 60), (540 + w0 / 2 + 40, y0 + 60), (540 + w0 / 2 - 30, y0), (540 - w0 / 2 + 30, y0)])
+        layer(c, roof, (50, 66, 76), depth=0.35, seed=40 + k)
+        for j in range(18):
+            ink(c, [(540 - w0 / 2 + j * w0 / 17, y0 + 6), (540 - w0 / 2 + j * w0 / 17 - 6, y0 + 56)], 2, (90, 110, 120), 0.6)
+        layer(c, rr(540 - w0 / 2 - 50, y0 + 52, 540 + w0 / 2 + 50, y0 + 66, 4), (214, 170, 80), depth=0.1, seed=50 + k)
+    # escadaria
+    for k in range(7):
+        layer(c, rr(300 - k * 26, 760 + k * 30, 780 + k * 26, 792 + k * 30, 3), mix((220, 206, 180), (180, 160, 130), k / 7), depth=0.12, seed=60 + k)
+    layer(c, rr(-40, 970, W + 40, H + 40, 1), (210, 190, 150), depth=0.05, shadow=False, rim=False, seed=70)
+    for k in range(10):
+        c.drawLine(-40, 1000 + k * k * 9, W + 40, 1000 + k * k * 9, skia.Paint(AntiAlias=True, Color=C((150, 120, 80), 0.25), StrokeWidth=2))
+
+
+def season_outside(c, season, t=0.0, x0=0, y0=0, x1=W, y1=H):
+    skies = {'primavera': ((170, 210, 230), (240, 230, 200)), 'verao': ((120, 186, 230), (250, 236, 190)),
+             'outono': ((214, 170, 120), (240, 210, 170)), 'inverno': ((170, 184, 200), (226, 230, 236))}
+    a, b = skies[season]
+    c.drawRect(skia.Rect(x0, y0, x1, y1), skia.Paint(Shader=skia.GradientShader.MakeLinear(
+        [skia.Point(0, y0), skia.Point(0, y1)], [C(a), C(b)])))
+    hill = {'primavera': (130, 176, 110), 'verao': (100, 160, 90), 'outono': (190, 140, 80), 'inverno': (236, 240, 244)}[season]
+    layer(c, smooth([(x0 - 50, y1 - 150), ((x0 + x1) / 2, y1 - 230), (x1 + 50, y1 - 170), (x1 + 50, y1 + 50), (x0 - 50, y1 + 50)], tension=0.4), hill, depth=0.1)
+    rnd = random.Random(7)
+    if season == 'outono':
+        for i in range(26):
+            px = rnd.uniform(x0, x1) + math.sin(t * 1.3 + i) * 30
+            py = y0 + (rnd.uniform(0, 1) * (y1 - y0) + t * 90 * rnd.uniform(0.6, 1)) % (y1 - y0)
+            leaf(c, px, py, rnd.uniform(0, 360) + t * 80, 22, 0, i)
+    if season == 'inverno':
+        for i in range(50):
+            px = rnd.uniform(x0, x1) + math.sin(t + i) * 12
+            py = y0 + (rnd.uniform(0, 1) * (y1 - y0) + t * 60 * rnd.uniform(0.5, 1)) % (y1 - y0)
+            flat(c, circ(px, py, rnd.uniform(3, 7)), (255, 255, 255), 0.9)
+    if season == 'verao':
+        for i in range(40):
+            px = rnd.uniform(x0, x1); py = y0 + (rnd.uniform(0, 1) * (y1 - y0) + t * 300) % (y1 - y0)
+            ink(c, [(px, py), (px - 6, py + 30)], 2.2, (200, 220, 240), 0.6)
+
+
+def sill(c, x0, x1, y):
+    layer(c, rr(x0, y, x1, y + 34, 4), (128, 86, 54), depth=0.3, seed=80)
+    for k in range(4):
+        ink(c, [(x0 + 20 + k * 90, y + 10), (x0 + 80 + k * 90, y + 14)], 1.4, (70, 44, 28), 0.5)

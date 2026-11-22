@@ -175,7 +175,7 @@ PING_EXPR = {
 }
 
 
-def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.0, nod=0.0):
+def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.0, nod=0.0, hat=False):
     """Ping fofinho, estilo livro infantil japonês: cabeça grande e redonda, bochechas cheias,
     cabelo okappa (franja reta), olhos grandes e baixos, nariz e boca pequenos."""
     e = PING_EXPR[expr]
@@ -230,6 +230,13 @@ def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.
     bi, bo = e['brows']
     for s in (-1, 1):
         brow(c, hx + s * 20, hy + 1, bi * 0.6, bo * 0.6, s, (40, 30, 34), w=3.0, L=11)
+    if hat:   # o chapéu do imperador, grande demais para ele
+        H_ = IMP
+        hat_p = smooth([(hx - 46, hy - 30), (hx - 48, hy - 78), (hx - 34, hy - 104), (hx, hy - 110), (hx + 34, hy - 104),
+                        (hx + 48, hy - 78), (hx + 46, hy - 30)], tension=0.4)
+        layer(c, hat_p, H_['hat'], depth=0.2, seed=171)
+        layer(c, rr(hx - 52, hy - 44, hx + 52, hy - 26, 7), H_['panel'], depth=0.06, seed=172)
+        layer(c, ell(hx, hy - 60, 9, 10), H_['jade'], depth=0.08, seed=173)
     c.restore()
 
 
@@ -313,7 +320,7 @@ def ping(c, expr='neutro', pose='hold_pot', t=0.0, face=None, squeeze=0.0, breat
             sh_ = (s_ * 36, -184)
             el_, hd_ = ik(sh_, (s_ * 16, -112), 34, 32, s_)
             layer(c, limb(sh_, (el_[0] + s_ * 2, el_[1]), 19, 16), P['tunic'], depth=0.2, seed=50 + s_)
-        ping_head(c, expr, t)
+        ping_head(c, expr, t, **face)
         return
     for s in (-1, 1):
         el, hd = ik(sh[s], hands[s], 34, 32, s)
@@ -341,7 +348,7 @@ IMP_EXPR = {
 }
 
 
-def imp_head(c, expr='sereno', t=0.0):
+def imp_head(c, expr='sereno', t=0.0, mouth_kind=None, blink=0.0):
     e = IMP_EXPR[expr]
     P = IMP
     hx, hy = 0, -392
@@ -361,7 +368,7 @@ def imp_head(c, expr='sereno', t=0.0):
         ink(c, [(hx - 3, hy - 14), (hx - 2, hy - 4)], 1.6, mul(P['skin'], 0.5), 0.7)
         ink(c, [(hx + 3, hy - 14), (hx + 2, hy - 4)], 1.6, mul(P['skin'], 0.5), 0.7)
     for s in (-1, 1):
-        eye(c, hx + s * 16, hy - 2, e['eyes'], P['eye'], rx=5.5, ry=7)
+        eye(c, hx + s * 16, hy - 2, 'closed' if blink > 0.5 else e['eyes'], P['eye'], rx=5.5, ry=7)
         # pés de galinha
         for k in range(3):
             ink(c, [(hx + s * 25, hy - 4 + k * 3), (hx + s * 31, hy - 7 + k * 4)], 1.1, mul(P['skin'], 0.55), 0.5)
@@ -376,7 +383,7 @@ def imp_head(c, expr='sereno', t=0.0):
     layer(c, beard, P['beard'], depth=0.18, seed=64)
     for k in range(-3, 4):
         ink(c, [(hx + k * 5, hy + 48), (hx + k * 4, hy + 80), (hx + k * 1.6, hy + 112)], 1.2, (170, 166, 160), 0.55)
-    mouth(c, hx, hy + 33, e['mouth'], s=0.8)
+    mouth(c, hx, hy + 33, mouth_kind or e['mouth'], s=0.8)
     # bigode caído
     for s in (-1, 1):
         layer(c, tp([(hx + s * 2, hy + 25), (hx + s * 16, hy + 28), (hx + s * 28, hy + 44), (hx + s * 32, hy + 66)], 6, 2),
@@ -405,7 +412,8 @@ def cloud_mark(c, x, y, s, col, a=0.85):
     ink(c, [(x + 3 * s, y + 1 * s), (x + 8 * s, y - 2 * s), (x + 11 * s, y + 3 * s)], 1.8 * s, col, a, 1.2 * s)
 
 
-def imperador(c, expr='sereno', pose='sleeves', t=0.0):
+def imperador(c, expr='sereno', pose='sleeves', t=0.0, face=None):
+    face = face or {}
     P = IMP
     contact_shadow(c, 0, 0, 70, 9)
     # sapatos de ponta curva
@@ -446,7 +454,7 @@ def imperador(c, expr='sereno', pose='sleeves', t=0.0):
         ink(c, [(s * 54, -310), (s * 60, -262)], 1.4, mul(P['robe'], 0.45), 0.55)
     if pose == 'sleeves':
         layer(c, rr(-10, -228, 10, -212, 5), P['panel'], depth=0.05, seed=90)  # punho dourado no encontro
-    imp_head(c, expr, t)
+    imp_head(c, expr, t, **face)
     if pose == 'beard':
         layer(c, ell(18, -272, 9, 8), P['skin'], depth=0.1, seed=91)
         ink(c, [(14, -276), (22, -274)], 1.2, mul(P['skin'], 0.6), 0.5)
