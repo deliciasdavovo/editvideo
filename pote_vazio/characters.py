@@ -106,7 +106,23 @@ def brow(c, x, y, inner_dy, outer_dy, side, col, w=3.6, L=14, thick=None):
     c.drawPath(tp(pts, thick or w, (thick or w) * 0.55), skia.Paint(AntiAlias=True, Color=C(col)))
 
 
-def mouth(c, x, y, kind, s=1.0, dark=(120, 44, 44), lip=(60, 30, 30)):
+def mouth(c, x, y, kind, s=1.0, dark=(120, 44, 44), lip=(60, 30, 30), op=1.0):
+    if kind in ('A', 'E', 'O', 'U'):
+        rx, ry = {'A': (7.5, 6.5), 'E': (9.5, 3.8), 'O': (5.8, 6.8), 'U': (3.8, 4.4)}[kind]
+        ry *= 0.55 + 0.6 * op
+        p = smooth([(x - rx, y), (x - rx * 0.6, y - ry * 0.75), (x, y - ry * 0.85), (x + rx * 0.6, y - ry * 0.75), (x + rx, y),
+                    (x + rx * 0.6, y + ry), (x, y + ry * 1.1), (x - rx * 0.6, y + ry)], tension=0.5)
+        flat(c, p, dark)
+        c.save(); c.clipPath(p, doAntiAlias=True)
+        flat(c, ell(x, y + ry * 1.1, rx * 0.7, ry * 0.6), (214, 104, 104))
+        if kind in ('A', 'E'):
+            flat(c, rr(x - rx, y - ry * 1.2, x + rx, y - ry * 0.45, 1), (250, 246, 238), 0.9)
+        c.restore()
+        ink(c, [(x - rx - 1, y), (x, y - ry * 0.95), (x + rx + 1, y)], 1.6, lip, 0.5, 1.2)
+        return
+    if kind == 'M':
+        ink(c, [(x - 7, y + 0.5), (x, y - 0.5), (x + 7, y + 0.5)], 3.0, lip, 0.95, 2.6)
+        return
     if kind == 'smile':
         ink(c, [(x - 9 * s, y - 2 * s), (x, y + 3.5 * s), (x + 9 * s, y - 2 * s)], 2.6 * s, lip, 0.9, 2.0 * s)
     elif kind == 'smile_open':
@@ -151,18 +167,19 @@ PING_EXPR = {
     'concentrado': dict(eyes='half', brows=(1, 1), mouth='tongue', blush=0.4, look=(1.5, 2)),
     'decepcionado': dict(eyes='half', brows=(-6, 3), mouth='flat_down', blush=0.35, look=(0, 2)),
     'vergonha':    dict(eyes='down', brows=(-9, 4), mouth='wobble', blush=1.4, look=(-2, 4), tilt=-9),
-    'choro':       dict(eyes='half', brows=(-8, 4), mouth='cry', blush=0.8, wet=True, tears=True),
-    'coragem':     dict(eyes='open', brows=(3, -3), mouth='firm', blush=0.6, wet=True),
+    'choro':       dict(eyes='open', brows=(-9, 5), mouth='cry', blush=0.8, wet=True, tears=True, look=(0, 1)),
+    'coragem':     dict(eyes='open', brows=(0, -2), mouth='firm', blush=0.6, wet=True),
     'alegria':     dict(eyes='happy', brows=(-5, -3), mouth='smile_open', blush=0.75),
 }
 
 
-def ping_head(c, expr='neutro', t=0.0):
+def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.0, nod=0.0):
     e = PING_EXPR[expr]
     P = PING
     hx, hy = 0, -238
     c.save()
     c.rotate(e.get('tilt', 0), hx, hy + 40)
+    c.translate(0, nod)
     # coque + fita (atrás)
     layer(c, circ(hx + 2, hy - 58, 15), P['hair'], depth=0.15, seed=1)
     for s in (-1, 1):
@@ -187,11 +204,11 @@ def ping_head(c, expr='neutro', t=0.0):
         flat(c, ell(hx + s * 31, hy + 20, 11, 7), P['blush'], 0.35 * e['blush'], blur=5)
     look = e.get('look', (0, 0))
     for s in (-1, 1):
-        almond_eye(c, hx + s * 19, hy + 6, e['eyes'], P['eye'], side=s, look=look, wet=e.get('wet', False))
+        almond_eye(c, hx + s * 19, hy + 6, 'closed' if blink > 0.5 else e['eyes'], P['eye'], side=s, look=look, wet=e.get('wet', False))
     # nariz botão
     flat(c, ell(hx + 1, hy + 18, 4.5, 3.6), mul(P['skin'], 0.86), 0.9)
     flat(c, circ(hx - 0.5, hy + 16.8, 1.4), (255, 240, 225), 0.7)
-    mouth(c, hx + 1, hy + 31, e['mouth'])
+    mouth(c, hx + 1, hy + 31, mouth_kind or e['mouth'], op=mouth_open)
     if e.get('tears'):
         tear_streams(c, [(hx - 21, hy + 14), (hx - 24, hy + 26), (hx - 22, hy + 38)],
                      [(hx + 21, hy + 14), (hx + 24, hy + 26), (hx + 23, hy + 36)])
@@ -235,7 +252,8 @@ def pot(c, x, y, s=1.0, empty=True, seed=0.0):
     return body
 
 
-def ping(c, expr='neutro', pose='hold_pot', t=0.0):
+def ping(c, expr='neutro', pose='hold_pot', t=0.0, face=None, squeeze=0.0, breath=0.0):
+    face = face or {}
     P = PING
     contact_shadow(c, 0, 0, 46, 7)
     # pernas + sapatos
@@ -247,6 +265,13 @@ def ping(c, expr='neutro', pose='hold_pot', t=0.0):
         layer(c, ell(s * 17, -9, 17, 9), P['shoes'], depth=0.12, seed=24 + s)
     # pescoço
     layer(c, rr(-10, -200, 10, -182, 4), mul(P['skin'], 0.9), depth=0.05, seed=26)
+    if pose == 'hide_pot':
+        pot(c, 30, -100, 0.92)
+        for s_ in (-1, 1):
+            sh_ = (s_ * 34, -184)
+            el_, hd_ = ik(sh_, (s_ * 16, -112), 34, 32, s_)
+            layer(c, limb(sh_, el_, 20, 17), mul(P['tunic'], 0.85), depth=0.2, seed=46 + s_)
+            layer(c, limb(el_, hd_, 17, 15), mul(P['tunic'], 0.82), depth=0.2, seed=48 + s_)
     # túnica (trapézio arredondado)
     tunic = smooth([(-34, -190), (34, -190), (44, -150), (52, -98), (40, -90), (0, -88), (-40, -90), (-52, -98), (-44, -150)],
                    tension=0.35)
@@ -273,12 +298,19 @@ def ping(c, expr='neutro', pose='hold_pot', t=0.0):
     # braços
     sh = {-1: (-34, -184), 1: (34, -184)}
     if pose == 'hold_pot':
-        hands = {-1: (-28, -146), 1: (28, -146)}
+        hands = {-1: (-28, -146 - squeeze), 1: (28, -146 - squeeze)}
     elif pose == 'hide_pot':
         hands = {-1: (-30, -118), 1: (30, -118)}
     else:  # down
         hands = {-1: (-44, -118), 1: (44, -118)}
     arm_parts = {}
+    if pose == 'hide_pot':
+        for s_ in (-1, 1):
+            sh_ = (s_ * 36, -184)
+            el_, hd_ = ik(sh_, (s_ * 16, -112), 34, 32, s_)
+            layer(c, limb(sh_, (el_[0] + s_ * 2, el_[1]), 19, 16), P['tunic'], depth=0.2, seed=50 + s_)
+        ping_head(c, expr, t)
+        return
     for s in (-1, 1):
         el, hd = ik(sh[s], hands[s], 34, 32, s)
         arm_parts[s] = (el, hd)
@@ -287,13 +319,13 @@ def ping(c, expr='neutro', pose='hold_pot', t=0.0):
         el, hd = arm_parts[s]
         layer(c, limb(sh[s], el, 20, 17), P['tunic'], depth=0.2, seed=40 + s)
     if pose == 'hold_pot':
-        pot(c, 0, -110, 1.0)
+        pot(c, 0, -110 - squeeze, 1.0)
     for s in (-1, 1):
         el, hd = arm_parts[s]
         layer(c, limb(el, hd, 17, 15), mul(P['tunic'], 0.97), depth=0.2, seed=42 + s)
         layer(c, ell(hd[0], hd[1], 10, 9), P['skin'], depth=0.12, seed=44 + s)
         ink(c, [(hd[0] - s * 2, hd[1] - 4), (hd[0] + s * 5, hd[1] - 1)], 1.2, mul(P['skin'], 0.6), 0.5)
-    ping_head(c, expr, t)
+    ping_head(c, expr, t, **face)
 
 
 # ============================================================ IMPERADOR
