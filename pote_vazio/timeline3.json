@@ -166,111 +166,111 @@
   {
    "w": "O",
    "s": 6.256,
-   "e": 6.31,
+   "e": 6.437,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "imperador",
-   "s": 6.31,
-   "e": 6.53,
+   "s": 6.437,
+   "e": 7.161,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "estava",
-   "s": 6.53,
-   "e": 6.694,
+   "s": 7.161,
+   "e": 7.704,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "velho",
-   "s": 6.694,
-   "e": 6.804,
+   "s": 7.704,
+   "e": 8.066,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "e",
-   "s": 6.804,
-   "e": 6.859,
+   "s": 8.451,
+   "e": 8.631,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "decidiu",
-   "s": 6.859,
-   "e": 7.024,
+   "s": 8.631,
+   "e": 9.172,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "escolher",
-   "s": 7.024,
-   "e": 7.188,
+   "s": 9.172,
+   "e": 9.713,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "seu",
-   "s": 7.188,
-   "e": 7.243,
+   "s": 9.713,
+   "e": 9.893,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "sucessor",
-   "s": 7.243,
-   "e": 7.408,
+   "s": 9.893,
+   "e": 10.434,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "de",
-   "s": 7.408,
-   "e": 7.463,
+   "s": 10.434,
+   "e": 10.615,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "uma",
-   "s": 7.463,
-   "e": 7.572,
+   "s": 10.615,
+   "e": 10.975,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "maneira",
-   "s": 7.572,
-   "e": 7.737,
+   "s": 10.975,
+   "e": 11.516,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "bastante",
-   "s": 7.737,
-   "e": 7.902,
+   "s": 11.516,
+   "e": 12.057,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
   },
   {
    "w": "curiosa.",
-   "s": 7.902,
-   "e": 8.066,
+   "s": 12.057,
+   "e": 12.598,
    "who": "narrador",
    "block": "c02_narr",
    "scene": 2
@@ -438,55 +438,55 @@
   {
    "w": "Quase",
    "s": 27.272,
-   "e": 27.371,
+   "e": 27.544,
    "who": "narrador",
    "block": "c04_narr",
    "scene": 4
   },
   {
    "w": "tudo",
-   "s": 27.371,
-   "e": 27.47,
-   "who": "narrador",
-   "block": "c04_narr",
-   "scene": 4
-  },
-  {
-   "w": "que",
-   "s": 27.47,
-   "e": 27.519,
-   "who": "narrador",
-   "block": "c04_narr",
-   "scene": 4
-  },
-  {
-   "w": "plantava",
-   "s": 27.519,
-   "e": 27.667,
-   "who": "narrador",
-   "block": "c04_narr",
-   "scene": 4
-  },
-  {
-   "w": "florescia.",
-   "s": 27.667,
+   "s": 27.544,
    "e": 27.815,
    "who": "narrador",
    "block": "c04_narr",
    "scene": 4
   },
   {
-   "w": "Quase",
+   "w": "que",
    "s": 28.16,
-   "e": 28.947,
+   "e": 28.385,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "plantava",
+   "s": 28.385,
+   "e": 29.06,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "florescia.",
+   "s": 29.06,
+   "e": 29.734,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "Quase",
+   "s": 30.214,
+   "e": 30.602,
    "who": "narrador",
    "block": "c04_narr",
    "scene": 4
   },
   {
    "w": "tudo...",
-   "s": 28.947,
-   "e": 29.734,
+   "s": 30.602,
+   "e": 30.99,
    "who": "narrador",
    "block": "c04_narr",
    "scene": 4

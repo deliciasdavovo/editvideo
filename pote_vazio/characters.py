@@ -481,7 +481,7 @@ PAI_EXPR = {
 }
 
 
-def pai_head(c, expr='terno', t=0.0):
+def pai_head(c, expr='terno', t=0.0, mouth_kind=None, blink=0.0):
     e = PAI_EXPR[expr]
     P = PAI
     hx, hy = 0, -345
@@ -506,7 +506,7 @@ def pai_head(c, expr='terno', t=0.0):
     # bigode
     for s in (-1, 1):
         layer(c, tp([(hx + s * 2, hy + 29), (hx + s * 14, hy + 30), (hx + s * 22, hy + 38)], 8, 3), P['hair'], depth=0.06, seed=108 + s)
-    mouth(c, hx, hy + 42, e['mouth'], s=0.9)
+    mouth(c, hx, hy + 42, mouth_kind or e['mouth'], s=0.9)
     for s in (-1, 1):
         ink(c, [(hx + s * 24, hy + 26), (hx + s * 27, hy + 38)], 1.3, mul(P['skin'], 0.55), 0.5)
 
@@ -528,7 +528,8 @@ def pai_hat(c):
     ink(c, [(hx - 30, hy + 52), (hx - 50, hy + 66)], 1.6, (120, 90, 50), 0.8)
 
 
-def pai(c, expr='terno', pose='apoio', t=0.0):
+def pai(c, expr='terno', pose='apoio', t=0.0, face=None, give=0.0):
+    face = face or {}
     P = PAI
     contact_shadow(c, 0, 0, 64, 9)
     pai_hat(c)
@@ -564,7 +565,7 @@ def pai(c, expr='terno', pose='apoio', t=0.0):
         layer(c, limb(el, mid, 30, 28), mul(P['tunic'], 1.1), depth=0.1, seed=138 + s)  # manga dobrada
         layer(c, ell(hd[0], hd[1], 14, 12), P['skin'], depth=0.12, seed=140 + s)
         ink(c, [(hd[0] - 6, hd[1] - 3), (hd[0] + 6, hd[1] - 4)], 1.3, mul(P['skin'], 0.6), 0.5)
-    pai_head(c, expr, t)
+    pai_head(c, expr, t, **face)
 
 
 # ============================================================ PARDAL

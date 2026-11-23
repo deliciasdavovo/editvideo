@@ -23,6 +23,8 @@ CLIPS = [
     ('c10_narr', 'narrador', 'Entre tantas flores, foi um pote vazio que revelou a verdade.', 0.9, 10),
 ]
 TAIL = 1.2
+# palavras por trecho de fala (conferido no silencedetect)
+OVERRIDE = {'c02_narr': [4, 10], 'c04_narr': [5, 2, 3, 2], 'c06_ping': [1, 7]}
 
 
 def main():
@@ -41,6 +43,13 @@ def main():
             assign.append(si); acc += S[i]
             if si < len(segs) - 1 and re.search(r'[,.;?!]$', w) and acc >= cum[si] - 3:
                 si += 1
+        if name in OVERRIDE and len(OVERRIDE[name]) == len(segs):
+            assign = [k for k, n_ in enumerate(OVERRIDE[name]) for _ in range(n_)]
+        elif len(segs) > 1 and len(set(assign)) < len(segs):
+            # sem pontuação suficiente: distribui pela proporção de tempo
+            assign, acc = [], 0
+            for i, w in enumerate(toks):
+                k = int(np.searchsorted(cum, acc + S[i] / 2)); assign.append(min(k, len(segs) - 1)); acc += S[i]
         pad = 0.03
         for k, (a, b) in enumerate(segs):
             seg = x[int(max(0, a - pad) * sr):int(min(len(x) / sr, b + pad) * sr)]

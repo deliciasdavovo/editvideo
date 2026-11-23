@@ -13,6 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TMP = '/tmp/claude-0/render'
 os.makedirs(TMP, exist_ok=True)
 NAMES = {'ping': 'Ping', 'imperador': 'Imperador'}
+TITLE_T = [3.4, 8.0]
 
 
 # ------------------------------------------------ legenda em trechos de 3–7 palavras
@@ -109,7 +110,7 @@ def draw_caption(c, t):
 
 # ------------------------------------------------ cartão do livro (cai aos 3,4 s, sai voando ~8 s)
 def title_card(c, t):
-    t0, t1 = 3.4, 8.0
+    t0, t1 = TITLE_T
     if not (t0 <= t < t1 + 0.6):
         return
     if t < t1:
