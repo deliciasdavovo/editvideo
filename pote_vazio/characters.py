@@ -69,7 +69,7 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.
     bot = [(ex + side * rx * 0.3, ey + ry * sy * 0.62), (ex - side * rx * 0.4, ey + ry * sy * 0.55)]
     if mono:   # pálpebra única: topo mais reto, canto externo erguido, olho mais alongado
         ic = (ex - side * rx, ey + 1.2)
-        oc = (ex + side * rx * 1.12, ey - ry * sy * 0.55)
+        oc = (ex + side * rx * 1.12, ey - ry * sy * 0.75)
         top = [ic, (ex - side * rx * 0.45, ey - ry * sy * 0.7), (ex + side * rx * 0.35, ey - ry * sy * 0.85), oc]
         bot = [(ex + side * rx * 0.45, ey + ry * sy * 0.55), (ex - side * rx * 0.35, ey + ry * sy * 0.6)]
     shape = smooth(top + bot, tension=0.5)
@@ -218,7 +218,7 @@ def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.
     look = e.get('look', (0, 0))
     for s in (-1, 1):
         almond_eye(c, hx + s * 20, hy + 14, 'closed' if blink > 0.5 else e['eyes'], P['eye'], side=s, look=look,
-                   wet=e.get('wet', False), rx=10.5, ry=6.6, mono=True)
+                   wet=e.get('wet', False), rx=8.6, ry=5.0, mono=True)
     # nariz mínimo
     flat(c, ell(hx, hy + 25, 2.8, 2.2), mul(P['skin'], 0.84), 0.9)
     mouth(c, hx, hy + 36, mouth_kind or e['mouth'], s=0.78, op=mouth_open)
