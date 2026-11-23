@@ -1,0 +1,7 @@
+fonts/
+*.tgz
+*.url
+__pycache__/
+o_pote_vazio.mp4
+o_pote_vazio_v2.mp4
+o_pote_vazio_v3.mp4

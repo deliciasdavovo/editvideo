@@ -1,0 +1,1302 @@
+{
+ "duration": 83.41,
+ "blocks": [
+  {
+   "name": "narr_b1_novo",
+   "who": "narrador",
+   "s": 0.146,
+   "e": 7.182,
+   "text": "Ping fazia qualquer planta florir. Mas a semente mais importante da vida dele não quis nascer."
+  },
+  {
+   "name": "narr_b2_novo",
+   "who": "narrador",
+   "s": 7.91,
+   "e": 15.718,
+   "text": "O imperador era velho, sem filhos, e amava flores. Por isso, deu uma semente a cada criança."
+  },
+  {
+   "name": "imp_b2_v2",
+   "who": "imperador",
+   "s": 16.107,
+   "e": 23.18,
+   "text": "Quem me trouxer a flor mais bonita em um ano será o próximo imperador."
+  },
+  {
+   "name": "narr_b3",
+   "who": "narrador",
+   "s": 23.714,
+   "e": 32.235,
+   "text": "Ping plantou e regou todo dia. Nada nasceu. Trocou a terra. Nada. Passou para um vaso maior. Nada."
+  },
+  {
+   "name": "narr_b4a",
+   "who": "narrador",
+   "s": 32.769,
+   "e": 38.129,
+   "text": "Na primavera, as crianças passaram com flores enormes. Ping teve vergonha."
+  },
+  {
+   "name": "ping_b4",
+   "who": "ping",
+   "s": 38.469,
+   "e": 41.218,
+   "text": "Pai, eu não posso levar um vaso vazio."
+  },
+  {
+   "name": "narr_b4b",
+   "who": "narrador",
+   "s": 41.587,
+   "e": 46.039,
+   "text": "Mas o pai disse que Ping fez o seu melhor, e isso bastava."
+  },
+  {
+   "name": "narr_b5",
+   "who": "narrador",
+   "s": 46.573,
+   "e": 55.594,
+   "text": "Então Ping levou o vaso vazio ao palácio. O imperador passou pelas flores de testa franzida, e parou em Ping."
+  },
+  {
+   "name": "imp_b5",
+   "who": "imperador",
+   "s": 55.934,
+   "e": 58.578,
+   "text": "Por que você trouxe um vaso vazio?"
+  },
+  {
+   "name": "ping_b5",
+   "who": "ping",
+   "s": 58.966,
+   "e": 64.167,
+   "text": "Eu cuidei da sua semente todo dia, mas ela não nasceu."
+  },
+  {
+   "name": "imp_b6",
+   "who": "imperador",
+   "s": 64.895,
+   "e": 70.346,
+   "text": "Eu cozinhei todas as sementes. Nenhuma podia nascer."
+  },
+  {
+   "name": "narr_b6",
+   "who": "narrador",
+   "s": 70.783,
+   "e": 77.526,
+   "text": "As outras flores vinham de sementes trocadas. Só Ping teve coragem de trazer a verdade."
+  },
+  {
+   "name": "narr_b7",
+   "who": "narrador",
+   "s": 78.012,
+   "e": 82.973,
+   "text": "O menino que fazia tudo florir virou imperador com um vaso sem nenhuma flor."
+  }
+ ],
+ "words": [
+  {
+   "w": "Ping",
+   "s": 0.175,
+   "e": 0.466,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "fazia",
+   "s": 0.466,
+   "e": 1.048,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "qualquer",
+   "s": 1.048,
+   "e": 1.629,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "planta",
+   "s": 1.629,
+   "e": 2.211,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "florir.",
+   "s": 2.211,
+   "e": 2.792,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "Mas",
+   "s": 3.219,
+   "e": 3.375,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "a",
+   "s": 3.375,
+   "e": 3.529,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "semente",
+   "s": 3.529,
+   "e": 3.993,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "mais",
+   "s": 3.993,
+   "e": 4.148,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "importante",
+   "s": 4.148,
+   "e": 4.767,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "da",
+   "s": 4.767,
+   "e": 4.921,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "vida",
+   "s": 4.921,
+   "e": 5.231,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "dele",
+   "s": 5.231,
+   "e": 5.54,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "não",
+   "s": 5.54,
+   "e": 5.695,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "quis",
+   "s": 5.695,
+   "e": 5.85,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "nascer.",
+   "s": 6.277,
+   "e": 7.152,
+   "who": "narrador",
+   "block": "narr_b1_novo"
+  },
+  {
+   "w": "O",
+   "s": 7.939,
+   "e": 8.108,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "imperador",
+   "s": 8.108,
+   "e": 8.783,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "era",
+   "s": 8.783,
+   "e": 9.12,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "velho,",
+   "s": 9.12,
+   "e": 9.458,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "sem",
+   "s": 9.458,
+   "e": 9.626,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "filhos,",
+   "s": 9.626,
+   "e": 9.964,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "e",
+   "s": 9.964,
+   "e": 10.133,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "amava",
+   "s": 10.133,
+   "e": 10.64,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "flores.",
+   "s": 10.64,
+   "e": 10.978,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "Por",
+   "s": 11.326,
+   "e": 11.715,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "isso,",
+   "s": 11.715,
+   "e": 12.491,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "deu",
+   "s": 12.918,
+   "e": 13.17,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "uma",
+   "s": 13.17,
+   "e": 13.674,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "semente",
+   "s": 13.674,
+   "e": 14.43,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "a",
+   "s": 14.43,
+   "e": 14.682,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "cada",
+   "s": 14.682,
+   "e": 15.185,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "criança.",
+   "s": 15.185,
+   "e": 15.689,
+   "who": "narrador",
+   "block": "narr_b2_novo"
+  },
+  {
+   "w": "Quem",
+   "s": 16.136,
+   "e": 16.428,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "me",
+   "s": 16.428,
+   "e": 16.72,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "trouxer",
+   "s": 16.72,
+   "e": 17.305,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "a",
+   "s": 17.305,
+   "e": 17.597,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "flor",
+   "s": 17.597,
+   "e": 17.889,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "mais",
+   "s": 17.889,
+   "e": 18.182,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "bonita",
+   "s": 18.182,
+   "e": 19.058,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "em",
+   "s": 19.058,
+   "e": 19.35,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "um",
+   "s": 19.35,
+   "e": 19.644,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "ano",
+   "s": 19.644,
+   "e": 20.228,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "será",
+   "s": 20.228,
+   "e": 20.813,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "o",
+   "s": 20.813,
+   "e": 21.105,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "próximo",
+   "s": 21.105,
+   "e": 21.982,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "imperador.",
+   "s": 21.982,
+   "e": 23.15,
+   "who": "imperador",
+   "block": "imp_b2_v2"
+  },
+  {
+   "w": "Ping",
+   "s": 23.743,
+   "e": 23.934,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "plantou",
+   "s": 23.934,
+   "e": 24.317,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "e",
+   "s": 24.317,
+   "e": 24.509,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "regou",
+   "s": 24.509,
+   "e": 24.892,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "todo",
+   "s": 24.892,
+   "e": 25.276,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "dia.",
+   "s": 25.276,
+   "e": 25.467,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Nada",
+   "s": 25.467,
+   "e": 25.85,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "nasceu.",
+   "s": 25.85,
+   "e": 26.233,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Trocou",
+   "s": 26.66,
+   "e": 27.012,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "a",
+   "s": 27.012,
+   "e": 27.187,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "terra.",
+   "s": 27.187,
+   "e": 27.538,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Nada.",
+   "s": 27.965,
+   "e": 28.78,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Passou",
+   "s": 29.207,
+   "e": 29.382,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "para",
+   "s": 29.382,
+   "e": 29.557,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "um",
+   "s": 29.557,
+   "e": 29.645,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "vaso",
+   "s": 30.072,
+   "e": 30.918,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "maior.",
+   "s": 30.918,
+   "e": 31.342,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Nada.",
+   "s": 31.769,
+   "e": 32.206,
+   "who": "narrador",
+   "block": "narr_b3"
+  },
+  {
+   "w": "Na",
+   "s": 32.798,
+   "e": 33.017,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "primavera,",
+   "s": 33.017,
+   "e": 33.89,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "as",
+   "s": 33.89,
+   "e": 34.109,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "crianças",
+   "s": 34.109,
+   "e": 34.546,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "passaram",
+   "s": 34.546,
+   "e": 35.201,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "com",
+   "s": 35.201,
+   "e": 35.419,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "flores",
+   "s": 35.419,
+   "e": 35.856,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "enormes.",
+   "s": 35.856,
+   "e": 36.512,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "Ping",
+   "s": 36.939,
+   "e": 37.132,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "teve",
+   "s": 37.132,
+   "e": 37.519,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "vergonha.",
+   "s": 37.519,
+   "e": 38.1,
+   "who": "narrador",
+   "block": "narr_b4a"
+  },
+  {
+   "w": "Pai,",
+   "s": 38.498,
+   "e": 38.722,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "eu",
+   "s": 38.722,
+   "e": 38.947,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "não",
+   "s": 38.947,
+   "e": 39.171,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "posso",
+   "s": 39.171,
+   "e": 39.619,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "levar",
+   "s": 39.619,
+   "e": 40.068,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "um",
+   "s": 40.068,
+   "e": 40.292,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "vaso",
+   "s": 40.292,
+   "e": 40.741,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "vazio.",
+   "s": 40.741,
+   "e": 41.189,
+   "who": "ping",
+   "block": "ping_b4"
+  },
+  {
+   "w": "Mas",
+   "s": 41.617,
+   "e": 41.785,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "o",
+   "s": 41.785,
+   "e": 41.953,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "pai",
+   "s": 41.953,
+   "e": 42.122,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "disse",
+   "s": 42.122,
+   "e": 42.46,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "que",
+   "s": 42.46,
+   "e": 42.628,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "Ping",
+   "s": 42.628,
+   "e": 42.797,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "fez",
+   "s": 42.797,
+   "e": 42.966,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "o",
+   "s": 42.966,
+   "e": 43.135,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "seu",
+   "s": 43.135,
+   "e": 43.304,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "melhor,",
+   "s": 43.304,
+   "e": 43.641,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "e",
+   "s": 43.641,
+   "e": 43.81,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "isso",
+   "s": 43.81,
+   "e": 44.148,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "bastava.",
+   "s": 44.148,
+   "e": 44.653,
+   "who": "narrador",
+   "block": "narr_b4b"
+  },
+  {
+   "w": "Então",
+   "s": 46.602,
+   "e": 47.02,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "Ping",
+   "s": 47.02,
+   "e": 47.229,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "levou",
+   "s": 47.229,
+   "e": 47.648,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "o",
+   "s": 47.648,
+   "e": 47.856,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "vaso",
+   "s": 47.856,
+   "e": 48.275,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "vazio",
+   "s": 48.275,
+   "e": 48.693,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "ao",
+   "s": 48.693,
+   "e": 48.902,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "palácio.",
+   "s": 48.902,
+   "e": 49.529,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "O",
+   "s": 49.956,
+   "e": 50.177,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "imperador",
+   "s": 50.177,
+   "e": 51.06,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "passou",
+   "s": 51.06,
+   "e": 51.502,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "pelas",
+   "s": 51.502,
+   "e": 51.944,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "flores",
+   "s": 51.944,
+   "e": 52.385,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "de",
+   "s": 52.385,
+   "e": 52.607,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "testa",
+   "s": 52.607,
+   "e": 53.049,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "franzida,",
+   "s": 53.049,
+   "e": 53.711,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "e",
+   "s": 54.138,
+   "e": 54.423,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "parou",
+   "s": 54.423,
+   "e": 54.994,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "em",
+   "s": 54.994,
+   "e": 55.28,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "Ping.",
+   "s": 55.28,
+   "e": 55.565,
+   "who": "narrador",
+   "block": "narr_b5"
+  },
+  {
+   "w": "Por",
+   "s": 55.963,
+   "e": 56.198,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "que",
+   "s": 56.198,
+   "e": 56.433,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "você",
+   "s": 56.433,
+   "e": 56.904,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "trouxe",
+   "s": 56.904,
+   "e": 57.374,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "um",
+   "s": 57.374,
+   "e": 57.609,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "vaso",
+   "s": 57.609,
+   "e": 58.079,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "vazio?",
+   "s": 58.079,
+   "e": 58.549,
+   "who": "imperador",
+   "block": "imp_b5"
+  },
+  {
+   "w": "Eu",
+   "s": 58.995,
+   "e": 59.248,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "cuidei",
+   "s": 59.248,
+   "e": 59.751,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "da",
+   "s": 59.751,
+   "e": 60.004,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "sua",
+   "s": 60.004,
+   "e": 60.255,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "semente",
+   "s": 60.255,
+   "e": 61.012,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "todo",
+   "s": 61.012,
+   "e": 61.516,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "dia,",
+   "s": 61.516,
+   "e": 61.768,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "mas",
+   "s": 62.117,
+   "e": 62.454,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "ela",
+   "s": 62.454,
+   "e": 63.128,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "não",
+   "s": 63.128,
+   "e": 63.465,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "nasceu.",
+   "s": 63.465,
+   "e": 64.138,
+   "who": "ping",
+   "block": "ping_b5"
+  },
+  {
+   "w": "Eu",
+   "s": 64.924,
+   "e": 65.089,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "cozinhei",
+   "s": 65.089,
+   "e": 65.583,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "todas",
+   "s": 65.583,
+   "e": 65.911,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "as",
+   "s": 66.163,
+   "e": 66.566,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "sementes.",
+   "s": 66.566,
+   "e": 67.775,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "Nenhuma",
+   "s": 68.124,
+   "e": 69.064,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "podia",
+   "s": 69.064,
+   "e": 69.69,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "nascer.",
+   "s": 69.69,
+   "e": 70.317,
+   "who": "imperador",
+   "block": "imp_b6"
+  },
+  {
+   "w": "As",
+   "s": 70.812,
+   "e": 71.05,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "outras",
+   "s": 71.05,
+   "e": 71.527,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "flores",
+   "s": 71.527,
+   "e": 72.005,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "vinham",
+   "s": 72.005,
+   "e": 72.483,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "de",
+   "s": 72.483,
+   "e": 72.721,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "sementes",
+   "s": 72.721,
+   "e": 73.438,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "trocadas.",
+   "s": 73.438,
+   "e": 74.154,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "Só",
+   "s": 74.154,
+   "e": 74.393,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "Ping",
+   "s": 74.393,
+   "e": 74.632,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "teve",
+   "s": 74.632,
+   "e": 75.109,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "coragem",
+   "s": 75.109,
+   "e": 75.825,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "de",
+   "s": 75.825,
+   "e": 76.064,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "trazer",
+   "s": 76.064,
+   "e": 76.542,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "a",
+   "s": 76.542,
+   "e": 76.781,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "verdade.",
+   "s": 76.781,
+   "e": 77.497,
+   "who": "narrador",
+   "block": "narr_b6"
+  },
+  {
+   "w": "O",
+   "s": 78.041,
+   "e": 78.229,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "menino",
+   "s": 78.229,
+   "e": 78.795,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "que",
+   "s": 78.795,
+   "e": 78.983,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "fazia",
+   "s": 78.983,
+   "e": 79.361,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "tudo",
+   "s": 79.361,
+   "e": 79.738,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "florir",
+   "s": 79.738,
+   "e": 80.116,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "virou",
+   "s": 80.116,
+   "e": 80.492,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "imperador",
+   "s": 80.492,
+   "e": 81.247,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "com",
+   "s": 81.247,
+   "e": 81.435,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "um",
+   "s": 81.435,
+   "e": 81.624,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "vaso",
+   "s": 81.624,
+   "e": 82.001,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "sem",
+   "s": 82.001,
+   "e": 82.189,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "nenhuma",
+   "s": 82.189,
+   "e": 82.755,
+   "who": "narrador",
+   "block": "narr_b7"
+  },
+  {
+   "w": "flor.",
+   "s": 82.755,
+   "e": 82.944,
+   "who": "narrador",
+   "block": "narr_b7"
+  }
+ ]
+}
