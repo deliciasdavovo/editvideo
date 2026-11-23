@@ -51,7 +51,7 @@ def eye(c, x, y, kind, col, rx=7.0, ry=9.5, look=(0, 0), wet=False, side=1):
     ink(c, [(ex - rx * 1.25, top + 2.5 * k), (ex, top - 0.8 * k), (ex + rx * 1.25, top + 2.5 * k)], 2.4 * k, col, 0.9, 1.4 * k)
 
 
-def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.0, cute=False):
+def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.0, cute=False, mono=False):
     """Olho amendoado pequeno e delicado (traço de livro ilustrado): ponto escuro,
     pálpebra superior em nanquim, brilho mínimo."""
     if kind in ('happy', 'closed'):
@@ -67,6 +67,11 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.
     oc = (ex + side * rx * 1.08, ey - 1.0)        # canto externo levemente acima
     top = [(ic[0], ic[1]), (ex - side * rx * 0.3, ey - ry * sy), (ex + side * rx * 0.45, ey - ry * sy * 0.9), oc]
     bot = [(ex + side * rx * 0.3, ey + ry * sy * 0.62), (ex - side * rx * 0.4, ey + ry * sy * 0.55)]
+    if mono:   # pálpebra única: topo mais reto, canto externo erguido, olho mais alongado
+        ic = (ex - side * rx, ey + 1.2)
+        oc = (ex + side * rx * 1.12, ey - ry * sy * 0.55)
+        top = [ic, (ex - side * rx * 0.45, ey - ry * sy * 0.7), (ex + side * rx * 0.35, ey - ry * sy * 0.85), oc]
+        bot = [(ex + side * rx * 0.45, ey + ry * sy * 0.55), (ex - side * rx * 0.35, ey + ry * sy * 0.6)]
     shape = smooth(top + bot, tension=0.5)
     if kind in ('half', 'down', 'narrow'):
         lid_y = ey - ry * sy * (0.5 if kind == 'half' else 0.3)
@@ -79,6 +84,8 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.
     flat(c, ell(ex, ey + ry * sy * 0.1, rx * 1.3, ry * sy * 0.5), (220, 206, 196), 0.35, blur=1)  # sombra da pálpebra no branco
     ix, iy = ex + look[0] * 0.5, ey - ry * sy * 0.05 + look[1] * 0.4
     ir = ry * 1.02
+    if mono:   # íris maior, um pouco mais baixa: a pálpebra cobre o alto
+        ir = ry * 1.15; iy = ey + ry * sy * 0.08 + look[1] * 0.4
     flat(c, circ(ix, iy, ir), (92, 58, 38))
     flat(c, circ(ix, iy + ir * 0.25, ir * 0.75), (120, 80, 50), 0.6)
     flat(c, circ(ix, iy, ir * 0.5), (22, 16, 16))
@@ -95,9 +102,12 @@ def almond_eye(c, x, y, kind, col, side=1, look=(0, 0), wet=False, rx=8.2, ry=6.
     if lid_y is None:
         lid = [(ic[0] - side * 0.5, ic[1] - 0.4), (ex - side * rx * 0.3, ey - ry * sy - 0.8),
                (ex + side * rx * 0.5, ey - ry * sy * 0.95 - 0.6), (oc[0] + side * 1.8, oc[1] - 1.2)]
+        if mono:
+            lid = [(ic[0] - side * 0.3, ic[1] - 0.6), (ex - side * rx * 0.45, ey - ry * sy * 0.7 - 1.0),
+                   (ex + side * rx * 0.35, ey - ry * sy * 0.85 - 1.0), (oc[0] + side * 2.6, oc[1] - 1.6)]
     else:
         lid = [(ic[0] - side * 0.5, lid_y + 0.8), (ex, lid_y - 0.6), (oc[0] + side * 1.8, lid_y - 0.4)]
-    c.drawPath(tp(lid, 2.4, 1.0), skia.Paint(AntiAlias=True, Color=C(col)))
+    c.drawPath(tp(lid, 3.0 if mono else 2.4, 1.2 if mono else 1.0), skia.Paint(AntiAlias=True, Color=C(col)))
 
 
 def brow(c, x, y, inner_dy, outer_dy, side, col, w=3.6, L=14, thick=None):
@@ -208,7 +218,7 @@ def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.
     look = e.get('look', (0, 0))
     for s in (-1, 1):
         almond_eye(c, hx + s * 20, hy + 14, 'closed' if blink > 0.5 else e['eyes'], P['eye'], side=s, look=look,
-                   wet=e.get('wet', False), rx=9.6, ry=8.0, cute=True)
+                   wet=e.get('wet', False), rx=10.5, ry=6.6, mono=True)
     # nariz mínimo
     flat(c, ell(hx, hy + 25, 2.8, 2.2), mul(P['skin'], 0.84), 0.9)
     mouth(c, hx, hy + 36, mouth_kind or e['mouth'], s=0.78, op=mouth_open)
