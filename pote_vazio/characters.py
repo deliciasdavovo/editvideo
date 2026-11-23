@@ -6,15 +6,17 @@ from paperlib import (layer, flat, ink, smooth, poly, ell, circ, rr, union, inte
                       ik, limb, contact_shadow, C, mix, mul, SCALE, STYLE)
 
 # ============================================================ paletas
-PING = dict(skin=(238, 198, 162), blush=(232, 120, 110), hair=(34, 30, 38), hair_hi=(74, 70, 88),
-            tunic=(46, 122, 120), tunic_patch=(78, 146, 128), collar=(240, 228, 204),
-            sash=(204, 84, 52), pants=(228, 214, 186), shoes=(52, 46, 56), eye=(38, 28, 30))
-IMP = dict(skin=(230, 196, 168), robe=(44, 52, 92), robe_dk=(30, 34, 62), panel=(198, 160, 86),
-           panel_dk=(150, 112, 52), collar=(238, 228, 206), sash=(170, 46, 44), beard=(238, 234, 224),
-           hat=(32, 34, 52), jade=(92, 164, 122), eye=(36, 28, 30))
-PAI = dict(skin=(206, 150, 108), hair=(36, 32, 34), gray=(150, 146, 148), tunic=(160, 112, 64),
-           tunic_dk=(128, 86, 48), pants=(62, 72, 92), rope=(214, 186, 128), straw=(214, 178, 116),
-           eye=(36, 26, 24), sandal=(120, 84, 54))
+PING = dict(skin=(238, 200, 166), blush=(228, 128, 112), hair=(52, 51, 49), hair_hi=(96, 94, 90),
+            tunic=(113, 134, 107), tunic_patch=(146, 162, 128), collar=(222, 208, 174),
+            sash=(146, 113, 78), pants=(222, 208, 174), shoes=(60, 54, 48), eye=(40, 30, 28))
+IMP = dict(skin=(230, 198, 170), robe=(154, 71, 57), robe_dk=(110, 48, 40), panel=(201, 163, 93),
+           panel_dk=(150, 116, 58), collar=(204, 197, 179), sash=(67, 61, 49), beard=(204, 197, 179),
+           hat=(67, 61, 49), jade=(201, 163, 93), eye=(40, 30, 28))
+PAI = dict(skin=(199, 150, 112), hair=(52, 46, 42), gray=(150, 146, 140), tunic=(119, 120, 107),
+           tunic_dk=(90, 92, 80), pants=(73, 66, 57), rope=(163, 139, 109), straw=(199, 161, 122),
+           eye=(36, 26, 24), sandal=(110, 84, 60))
+RIVAL = dict(skin=(236, 208, 176), tunic=(193, 139, 67), red=(163, 76, 55), vase=(225, 200, 150),
+             dark=(68, 52, 43), bead=(150, 200, 220), petal=(226, 120, 150), petal2=(196, 80, 120), eye=(40, 30, 28))
 BIRD = dict(back=(146, 98, 60), belly=(236, 222, 196), cap=(98, 66, 48), cheek=(244, 236, 220),
             beak=(232, 176, 70), eye=(24, 20, 22), wing=(120, 80, 50))
 POT = dict(clay=(184, 112, 70), band=(240, 226, 196), earth=(92, 66, 48), rim=(200, 128, 84))
@@ -236,6 +238,8 @@ def ping_head(c, expr='neutro', t=0.0, mouth_kind=None, mouth_open=1.0, blink=0.
                skia.Paint(AntiAlias=True, Color=C(P['hair_hi'], 0.7)))
     for x0 in (-36, -22, -8, 6, 20, 34):
         ink(c, [(hx + x0 * 0.7, hy - 47), (hx + x0 * 0.95, hy - 26), (hx + x0, hy - 6)], 1.6, P['hair_hi'], 0.6, 0.6)
+    # fios desalinhados
+    ink(c, [(hx + 40, hy - 30), (hx + 52, hy - 34), (hx + 58, hy - 26)], 2.2, P['hair'], 0.9, 0.8)
     # sobrancelhas curtinhas aparecendo logo abaixo da franja
     bi, bo = e['brows']
     for s in (-1, 1):
@@ -388,11 +392,11 @@ def imp_head(c, expr='sereno', t=0.0, mouth_kind=None, blink=0.0):
     layer(c, nose, mul(P['skin'], 0.95), depth=0.08, seed=63)
     ink(c, [(hx + 3, hy - 4), (hx + 7, hy + 8), (hx + 5, hy + 18)], 1.4, mul(P['skin'], 0.5), 0.55)
     # barba longa (triângulo) com fios
-    beard = smooth([(hx - 26, hy + 26), (hx - 20, hy + 60), (hx - 8, hy + 110), (hx, hy + 128), (hx + 8, hy + 110),
-                    (hx + 20, hy + 60), (hx + 26, hy + 26), (hx + 12, hy + 40), (hx, hy + 44), (hx - 12, hy + 40)], tension=0.4)
+    beard = smooth([(hx - 15, hy + 30), (hx - 11, hy + 64), (hx - 5, hy + 112), (hx, hy + 132), (hx + 5, hy + 112),
+                    (hx + 11, hy + 64), (hx + 15, hy + 30), (hx + 7, hy + 40), (hx, hy + 44), (hx - 7, hy + 40)], tension=0.4)
     layer(c, beard, P['beard'], depth=0.18, seed=64)
-    for k in range(-3, 4):
-        ink(c, [(hx + k * 5, hy + 48), (hx + k * 4, hy + 80), (hx + k * 1.6, hy + 112)], 1.2, (170, 166, 160), 0.55)
+    for k in range(-2, 3):
+        ink(c, [(hx + k * 3.5, hy + 48), (hx + k * 2.6, hy + 80), (hx + k * 1.0, hy + 116)], 1.1, (160, 154, 140), 0.55)
     mouth(c, hx, hy + 33, mouth_kind or e['mouth'], s=0.8)
     # bigode caído
     for s in (-1, 1):
@@ -592,3 +596,111 @@ def pardal(c, expr='curioso', t=0.0):
     layer(c, poly([(25, -42), (35, -39), (25, -35)]), P['beak'], depth=0.05, seed=157)
     eye(c, 18, -42, e['eye'], P['eye'], rx=2.8, ry=3.4)
     c.restore()
+
+
+# ============================================================ MENINO RIVAL
+RIVAL_EXPR = {
+    'deboche':     dict(eyes='narrow', brows=(2, -4), mouth='smirk', tilt=-6),
+    'orgulho':     dict(eyes='narrow', brows=(0, -5), mouth='smile', tilt=-8),
+    'susto':       dict(eyes='open', brows=(-7, -6), mouth='o', tilt=4),
+    'vergonha':    dict(eyes='half', brows=(-7, 4), mouth='flat_down', tilt=8),
+}
+
+
+def rival_head(c, expr='deboche', t=0.0, mouth_kind=None, blink=0.0):
+    e = RIVAL_EXPR[expr]
+    P = RIVAL
+    hx, hy = 0, -318
+    c.save(); c.rotate(e.get('tilt', 0), hx, hy + 50)
+    # coque pontudo (triângulo)
+    layer(c, tp([(hx + 4, hy - 46), (hx + 6, hy - 66), (hx + 3, hy - 86)], 20, 3), P['dark'], depth=0.12, seed=201)
+    for s_ in (-1, 1):
+        layer(c, ell(hx + s_ * 40, hy + 6, 7, 11), mul(P['skin'], 0.95), depth=0.1, seed=202 + s_)
+    face = smooth([(hx, hy - 52), (hx + 32, hy - 40), (hx + 40, hy - 4), (hx + 34, hy + 34), (hx + 14, hy + 56), (hx, hy + 60),
+                   (hx - 14, hy + 56), (hx - 34, hy + 34), (hx - 40, hy - 4), (hx - 32, hy - 40)], tension=0.42)
+    layer(c, face, P['skin'], depth=0.2, seed=204)
+    hair = smooth([(hx - 42, hy + 4), (hx - 42, hy - 30), (hx - 24, hy - 54), (hx, hy - 58), (hx + 24, hy - 54), (hx + 42, hy - 30),
+                   (hx + 42, hy + 4), (hx + 34, hy - 18), (hx + 10, hy - 28), (hx - 18, hy - 26), (hx - 36, hy - 14)], tension=0.4)
+    layer(c, hair, P['dark'], depth=0.15, seed=205)
+    # faixa vermelha na testa + conta azul + ponta solta
+    band = smooth([(hx - 44, hy - 30), (hx, hy - 40), (hx + 44, hy - 30), (hx + 44, hy - 20), (hx, hy - 30), (hx - 44, hy - 20)], tension=0.3)
+    layer(c, band, P['red'], depth=0.08, seed=206)
+    layer(c, tp([(hx + 40, hy - 26), (hx + 62, hy - 20), (hx + 76, hy - 4)], 9, 3), P['red'], depth=0.08, seed=207)
+    layer(c, ell(hx - 44, hy - 22, 6, 8), P['bead'], depth=0.06, seed=208)
+    for s_ in (-1, 1):
+        if blink > 0.5:
+            ink(c, [(hx + s_ * 22 - 8, hy + 4), (hx + s_ * 22 + 8, hy + 3)], 2.6, P['eye'], 0.95)
+        else:
+            almond_eye(c, hx + s_ * 17, hy + 4, e['eyes'], P['eye'], side=s_, rx=8.5, ry=4.6, mono=True)
+        brow(c, hx + s_ * 17, hy - 12, e['brows'][0], e['brows'][1], s_, (50, 38, 32), w=3.4, L=16)
+    flat(c, ell(hx + 1, hy + 22, 3.4, 2.6), mul(P['skin'], 0.82), 0.9)
+    for s_ in (-1, 1):
+        flat(c, ell(hx + s_ * 24, hy + 26, 9, 6), (226, 140, 120), 0.3, blur=4)
+    mk = mouth_kind or e['mouth']
+    if mk == 'smirk':
+        ink(c, [(hx - 7, hy + 38), (hx + 3, hy + 39), (hx + 11, hy + 33)], 2.6, (70, 34, 30), 0.95, 2.0)
+    else:
+        mouth(c, hx + 1, hy + 37, mk, s=0.8)
+    c.restore()
+
+
+def big_vase(c, x, y, s=1.0, flowers=True, hidden=0.0, seed=0):
+    """Vaso enorme creme com faixa de escamas vermelhas e flores cor-de-rosa."""
+    P = RIVAL
+    if flowers:
+        for k, (fx, fy, r) in enumerate([(40, -215, 30), (88, -238, 34), (126, -200, 28), (64, -180, 26), (110, -168, 24), (20, -182, 22)]):
+            ink(c, [(x, y - 150 * s), (x + fx * 0.5 * s, y - 180 * s), (x + fx * s, y + fy * s + 20 * s)], 4 * s, (70, 120, 70), 1, 3 * s)
+        for k, (fx, fy, r) in enumerate([(40, -215, 30), (88, -238, 34), (126, -200, 28), (64, -180, 26), (110, -168, 24), (20, -182, 22)]):
+            import scenes as _sc
+            _sc.peony(c, x + fx * s, y + fy * s, r * s, P['petal'] if k % 2 else P['petal2'], 0.0, seed + k)
+    body = smooth([(x - 26 * s, y - 165 * s), (x - 22 * s, y - 140 * s), (x - 70 * s, y - 100 * s), (x - 80 * s, y - 50 * s),
+                   (x - 50 * s, y), (x + 50 * s, y), (x + 80 * s, y - 50 * s), (x + 70 * s, y - 100 * s), (x + 22 * s, y - 140 * s),
+                   (x + 26 * s, y - 165 * s)], tension=0.4)
+    layer(c, body, P['vase'], depth=0.3, seed=seed + 20)
+    band = inter(body, rr(x - 100 * s, y - 102 * s, x + 100 * s, y - 76 * s, 1))
+    layer(c, band, P['red'], depth=0.04, shadow=False, seed=seed + 21)
+    c.save(); c.clipPath(band, doAntiAlias=True)
+    for row in range(3):
+        for k in range(-9, 10):
+            cx = x + k * 10 * s + (5 * s if row % 2 else 0); cy = y - 98 * s + row * 9 * s
+            c.drawPath(skia.Path().addCircle(cx, cy, 5 * s), skia.Paint(AntiAlias=True, Style=skia.Paint.kStroke_Style, StrokeWidth=1.4 * s,
+                       Color=C((240, 214, 170), 0.85)))
+    c.restore()
+    for k in range(-5, 6):
+        ink(c, [(x + k * 12 * s - 5 * s, y - 50 * s), (x + k * 12 * s, y - 44 * s), (x + k * 12 * s + 5 * s, y - 50 * s)], 1.5 * s, P['red'], 0.8)
+    layer(c, ell(x, y - 165 * s, 28 * s, 7 * s), mix(P['vase'], (255, 255, 255), 0.15), depth=0.05, seed=seed + 22)
+    return body
+
+
+def rival(c, expr='deboche', pose='carry', t=0.0, face=None, strain=0.0):
+    """Anguloso e alongado (~3,8 cabeças): carrega um vaso que mal consegue sustentar."""
+    face = face or {}
+    P = RIVAL
+    contact_shadow(c, 0, 0, 56, 8)
+    for s_ in (-1, 1):
+        layer(c, rr(s_ * 14 - 9, -130, s_ * 14 + 9, -14, 5), P['dark'], depth=0.12, seed=210 + s_)
+        layer(c, smooth([(s_ * 14 - 14, -16), (s_ * 14 + 18 * s_, -16), (s_ * 14 + 14 * s_, -4), (s_ * 14 - 12, -2)], tension=0.3), P['dark'], depth=0.1, seed=212 + s_)
+    layer(c, rr(-9, -270, 9, -252, 4), mul(P['skin'], 0.9), depth=0.05, seed=214)
+    tunic = poly([(-36, -262), (36, -262), (48, -120), (-48, -120)])
+    layer(c, tunic, P['tunic'], depth=0.25, seed=215)
+    layer(c, rr(-50, -132, 50, -118, 3), P['red'], depth=0.05, seed=216)
+    ink(c, [(-10, -262), (8, -200), (6, -132)], 2.2, mul(P['tunic'], 0.55), 0.6)
+    sh = {-1: (-36, -252), 1: (36, -252)}
+    lean = strain * 4
+    if pose == 'carry':
+        hands = {-1: (-58, -110 + lean), 1: (58, -110 + lean)}
+    elif pose == 'hide':
+        hands = {-1: (-30, -170), 1: (30, -170)}
+    else:
+        hands = {-1: (-50, -130), 1: (50, -130)}
+    for s_ in (-1, 1):
+        el, hd = ik(sh[s_], hands[s_], 52, 50, s_)
+        layer(c, limb(sh[s_], el, 18, 16), P['tunic'], depth=0.2, seed=217 + s_)
+    if pose == 'carry':
+        big_vase(c, 0, -46 + lean * 0.5, 0.72, seed=7)
+    for s_ in (-1, 1):
+        el, hd = ik(sh[s_], hands[s_], 52, 50, s_)
+        layer(c, limb(el, hd, 16, 14), P['tunic'], depth=0.2, seed=219 + s_)
+        layer(c, limb((el[0] * 0.25 + hd[0] * 0.75, el[1] * 0.25 + hd[1] * 0.75), hd, 18, 18), P['red'], depth=0.1, seed=221 + s_)
+        layer(c, ell(hd[0], hd[1], 10, 9), P['skin'], depth=0.12, seed=223 + s_)
+    rival_head(c, expr, t, **face)

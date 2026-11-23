@@ -1,0 +1,1039 @@
+{
+ "duration": 84.827,
+ "blocks": [
+  {
+   "name": "c01_rival",
+   "who": "rival",
+   "s": 1.0,
+   "e": 4.626,
+   "text": "Você veio apresentar isso ao imperador?",
+   "scene": 1
+  },
+  {
+   "name": "c02_narr",
+   "who": "narrador",
+   "s": 6.226,
+   "e": 12.628,
+   "text": "O imperador estava velho e decidiu escolher seu sucessor de uma maneira bastante curiosa.",
+   "scene": 2
+  },
+  {
+   "name": "c02_imp",
+   "who": "imperador",
+   "s": 13.078,
+   "e": 17.082,
+   "text": "Cada criança receberá uma semente.",
+   "scene": 2
+  },
+  {
+   "name": "c03_imp",
+   "who": "imperador",
+   "s": 18.382,
+   "e": 23.835,
+   "text": "Daqui a um ano, retornem com aquilo que conseguirem cultivar.",
+   "scene": 3
+  },
+  {
+   "name": "c04_narr",
+   "who": "narrador",
+   "s": 24.935,
+   "e": 31.02,
+   "text": "Ping tinha um talento especial. Quase tudo que plantava florescia. Quase tudo...",
+   "scene": 4
+  },
+  {
+   "name": "c05_ping",
+   "who": "ping",
+   "s": 34.62,
+   "e": 36.62,
+   "text": "O que você está precisando?",
+   "scene": 5
+  },
+  {
+   "name": "c06_ping",
+   "who": "ping",
+   "s": 39.82,
+   "e": 43.464,
+   "text": "Pai, não posso aparecer lá de mãos vazias.",
+   "scene": 6
+  },
+  {
+   "name": "c06_pai",
+   "who": "pai",
+   "s": 43.914,
+   "e": 46.194,
+   "text": "Mas você fez o seu melhor, não fez?",
+   "scene": 6
+  },
+  {
+   "name": "c07_pai",
+   "who": "pai",
+   "s": 47.594,
+   "e": 50.303,
+   "text": "Então leve o resultado do seu esforço.",
+   "scene": 7
+  },
+  {
+   "name": "c08_imp",
+   "who": "imperador",
+   "s": 53.903,
+   "e": 55.693,
+   "text": "E a sua flor?",
+   "scene": 8
+  },
+  {
+   "name": "c08_ping",
+   "who": "ping",
+   "s": 56.593,
+   "e": 61.516,
+   "text": "Majestade, eu tentei. Mas a semente não cresceu.",
+   "scene": 8
+  },
+  {
+   "name": "c09_imp",
+   "who": "imperador",
+   "s": 63.116,
+   "e": 70.878,
+   "text": "Todas as sementes que entreguei haviam sido fervidas. Nenhuma poderia germinar.",
+   "scene": 9
+  },
+  {
+   "name": "c10_imp",
+   "who": "imperador",
+   "s": 73.878,
+   "e": 78.156,
+   "text": "Enfim encontrei alguém digno de governar.",
+   "scene": 10
+  },
+  {
+   "name": "c10_narr",
+   "who": "narrador",
+   "s": 79.056,
+   "e": 83.627,
+   "text": "Entre tantas flores, foi um pote vazio que revelou a verdade.",
+   "scene": 10
+  }
+ ],
+ "words": [
+  {
+   "w": "Você",
+   "s": 1.03,
+   "e": 1.539,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "veio",
+   "s": 1.539,
+   "e": 1.794,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "apresentar",
+   "s": 1.794,
+   "e": 2.813,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "isso",
+   "s": 2.813,
+   "e": 3.322,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "ao",
+   "s": 3.322,
+   "e": 3.577,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "imperador?",
+   "s": 3.577,
+   "e": 4.595,
+   "who": "rival",
+   "block": "c01_rival",
+   "scene": 1
+  },
+  {
+   "w": "O",
+   "s": 6.256,
+   "e": 6.31,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "imperador",
+   "s": 6.31,
+   "e": 6.53,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "estava",
+   "s": 6.53,
+   "e": 6.694,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "velho",
+   "s": 6.694,
+   "e": 6.804,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "e",
+   "s": 6.804,
+   "e": 6.859,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "decidiu",
+   "s": 6.859,
+   "e": 7.024,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "escolher",
+   "s": 7.024,
+   "e": 7.188,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "seu",
+   "s": 7.188,
+   "e": 7.243,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "sucessor",
+   "s": 7.243,
+   "e": 7.408,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "de",
+   "s": 7.408,
+   "e": 7.463,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "uma",
+   "s": 7.463,
+   "e": 7.572,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "maneira",
+   "s": 7.572,
+   "e": 7.737,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "bastante",
+   "s": 7.737,
+   "e": 7.902,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "curiosa.",
+   "s": 7.902,
+   "e": 8.066,
+   "who": "narrador",
+   "block": "c02_narr",
+   "scene": 2
+  },
+  {
+   "w": "Cada",
+   "s": 13.108,
+   "e": 13.714,
+   "who": "imperador",
+   "block": "c02_imp",
+   "scene": 2
+  },
+  {
+   "w": "criança",
+   "s": 13.714,
+   "e": 14.321,
+   "who": "imperador",
+   "block": "c02_imp",
+   "scene": 2
+  },
+  {
+   "w": "receberá",
+   "s": 14.321,
+   "e": 15.535,
+   "who": "imperador",
+   "block": "c02_imp",
+   "scene": 2
+  },
+  {
+   "w": "uma",
+   "s": 15.535,
+   "e": 16.142,
+   "who": "imperador",
+   "block": "c02_imp",
+   "scene": 2
+  },
+  {
+   "w": "semente.",
+   "s": 16.142,
+   "e": 17.052,
+   "who": "imperador",
+   "block": "c02_imp",
+   "scene": 2
+  },
+  {
+   "w": "Daqui",
+   "s": 18.412,
+   "e": 18.925,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "a",
+   "s": 18.925,
+   "e": 19.182,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "um",
+   "s": 19.182,
+   "e": 19.439,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "ano,",
+   "s": 19.439,
+   "e": 19.953,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "retornem",
+   "s": 19.953,
+   "e": 20.723,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "com",
+   "s": 20.723,
+   "e": 20.98,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "aquilo",
+   "s": 20.98,
+   "e": 21.751,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "que",
+   "s": 21.751,
+   "e": 22.007,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "conseguirem",
+   "s": 22.007,
+   "e": 23.035,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "cultivar.",
+   "s": 23.035,
+   "e": 23.805,
+   "who": "imperador",
+   "block": "c03_imp",
+   "scene": 3
+  },
+  {
+   "w": "Ping",
+   "s": 24.965,
+   "e": 25.16,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "tinha",
+   "s": 25.16,
+   "e": 25.549,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "um",
+   "s": 25.549,
+   "e": 25.744,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "talento",
+   "s": 25.744,
+   "e": 26.328,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "especial.",
+   "s": 26.328,
+   "e": 26.913,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "Quase",
+   "s": 27.272,
+   "e": 27.371,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "tudo",
+   "s": 27.371,
+   "e": 27.47,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "que",
+   "s": 27.47,
+   "e": 27.519,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "plantava",
+   "s": 27.519,
+   "e": 27.667,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "florescia.",
+   "s": 27.667,
+   "e": 27.815,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "Quase",
+   "s": 28.16,
+   "e": 28.947,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "tudo...",
+   "s": 28.947,
+   "e": 29.734,
+   "who": "narrador",
+   "block": "c04_narr",
+   "scene": 4
+  },
+  {
+   "w": "O",
+   "s": 34.65,
+   "e": 34.844,
+   "who": "ping",
+   "block": "c05_ping",
+   "scene": 5
+  },
+  {
+   "w": "que",
+   "s": 34.844,
+   "e": 35.038,
+   "who": "ping",
+   "block": "c05_ping",
+   "scene": 5
+  },
+  {
+   "w": "você",
+   "s": 35.038,
+   "e": 35.426,
+   "who": "ping",
+   "block": "c05_ping",
+   "scene": 5
+  },
+  {
+   "w": "está",
+   "s": 35.426,
+   "e": 35.814,
+   "who": "ping",
+   "block": "c05_ping",
+   "scene": 5
+  },
+  {
+   "w": "precisando?",
+   "s": 35.814,
+   "e": 36.59,
+   "who": "ping",
+   "block": "c05_ping",
+   "scene": 5
+  },
+  {
+   "w": "Pai,",
+   "s": 39.85,
+   "e": 40.743,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "não",
+   "s": 41.112,
+   "e": 41.305,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "posso",
+   "s": 41.305,
+   "e": 41.692,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "aparecer",
+   "s": 41.692,
+   "e": 42.467,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "lá",
+   "s": 42.467,
+   "e": 42.66,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "de",
+   "s": 42.66,
+   "e": 42.854,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "mãos",
+   "s": 42.854,
+   "e": 43.047,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "vazias.",
+   "s": 43.047,
+   "e": 43.434,
+   "who": "ping",
+   "block": "c06_ping",
+   "scene": 6
+  },
+  {
+   "w": "Mas",
+   "s": 43.944,
+   "e": 44.166,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "você",
+   "s": 44.166,
+   "e": 44.61,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "fez",
+   "s": 44.61,
+   "e": 44.832,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "o",
+   "s": 44.832,
+   "e": 45.054,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "seu",
+   "s": 45.054,
+   "e": 45.276,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "melhor,",
+   "s": 45.276,
+   "e": 45.72,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "não",
+   "s": 45.72,
+   "e": 45.942,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "fez?",
+   "s": 45.942,
+   "e": 46.164,
+   "who": "pai",
+   "block": "c06_pai",
+   "scene": 6
+  },
+  {
+   "w": "Então",
+   "s": 47.624,
+   "e": 48.003,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "leve",
+   "s": 48.003,
+   "e": 48.381,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "o",
+   "s": 48.381,
+   "e": 48.57,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "resultado",
+   "s": 48.57,
+   "e": 49.327,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "do",
+   "s": 49.327,
+   "e": 49.516,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "seu",
+   "s": 49.516,
+   "e": 49.706,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "esforço.",
+   "s": 49.706,
+   "e": 50.273,
+   "who": "pai",
+   "block": "c07_pai",
+   "scene": 7
+  },
+  {
+   "w": "E",
+   "s": 53.933,
+   "e": 54.366,
+   "who": "imperador",
+   "block": "c08_imp",
+   "scene": 8
+  },
+  {
+   "w": "a",
+   "s": 54.366,
+   "e": 54.798,
+   "who": "imperador",
+   "block": "c08_imp",
+   "scene": 8
+  },
+  {
+   "w": "sua",
+   "s": 54.798,
+   "e": 55.23,
+   "who": "imperador",
+   "block": "c08_imp",
+   "scene": 8
+  },
+  {
+   "w": "flor?",
+   "s": 55.23,
+   "e": 55.663,
+   "who": "imperador",
+   "block": "c08_imp",
+   "scene": 8
+  },
+  {
+   "w": "Majestade,",
+   "s": 56.623,
+   "e": 57.92,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "eu",
+   "s": 57.92,
+   "e": 58.244,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "tentei.",
+   "s": 58.244,
+   "e": 58.892,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "Mas",
+   "s": 58.892,
+   "e": 59.216,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "a",
+   "s": 59.216,
+   "e": 59.541,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "semente",
+   "s": 59.541,
+   "e": 60.513,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "não",
+   "s": 60.513,
+   "e": 60.837,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "cresceu.",
+   "s": 60.837,
+   "e": 61.486,
+   "who": "ping",
+   "block": "c08_ping",
+   "scene": 8
+  },
+  {
+   "w": "Todas",
+   "s": 63.146,
+   "e": 63.738,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "as",
+   "s": 63.738,
+   "e": 64.035,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "sementes",
+   "s": 64.035,
+   "e": 64.923,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "que",
+   "s": 64.923,
+   "e": 65.22,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "entreguei",
+   "s": 65.22,
+   "e": 66.108,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "haviam",
+   "s": 66.108,
+   "e": 66.701,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "sido",
+   "s": 66.701,
+   "e": 67.293,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "fervidas.",
+   "s": 67.293,
+   "e": 68.182,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "Nenhuma",
+   "s": 68.182,
+   "e": 69.071,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "poderia",
+   "s": 69.071,
+   "e": 69.959,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "germinar.",
+   "s": 69.959,
+   "e": 70.848,
+   "who": "imperador",
+   "block": "c09_imp",
+   "scene": 9
+  },
+  {
+   "w": "Enfim",
+   "s": 73.908,
+   "e": 74.557,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "encontrei",
+   "s": 74.557,
+   "e": 75.53,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "alguém",
+   "s": 75.53,
+   "e": 76.179,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "digno",
+   "s": 76.179,
+   "e": 76.828,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "de",
+   "s": 76.828,
+   "e": 77.153,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "governar.",
+   "s": 77.153,
+   "e": 78.126,
+   "who": "imperador",
+   "block": "c10_imp",
+   "scene": 10
+  },
+  {
+   "w": "Entre",
+   "s": 79.086,
+   "e": 79.537,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "tantas",
+   "s": 79.537,
+   "e": 79.988,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "flores,",
+   "s": 79.988,
+   "e": 80.44,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "foi",
+   "s": 80.44,
+   "e": 80.665,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "um",
+   "s": 80.665,
+   "e": 80.891,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "pote",
+   "s": 80.891,
+   "e": 81.342,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "vazio",
+   "s": 81.342,
+   "e": 81.793,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "que",
+   "s": 81.793,
+   "e": 82.018,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "revelou",
+   "s": 82.018,
+   "e": 82.695,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "a",
+   "s": 82.695,
+   "e": 82.921,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  },
+  {
+   "w": "verdade.",
+   "s": 82.921,
+   "e": 83.597,
+   "who": "narrador",
+   "block": "c10_narr",
+   "scene": 10
+  }
+ ]
+}
