@@ -96,7 +96,12 @@ def imp_face(t):
 def cam(c, u, d, z0, z1, cx=500, cy=760, dx0=0, dx1=0, dy0=0, dy1=0):
     k = ease(u / max(0.01, d))
     z = z0 + (z1 - z0) * k
-    c.translate(500, 760); c.scale(z, z); c.translate(-cx - (dx0 + (dx1 - dx0) * k), -cy - (dy0 + (dy1 - dy0) * k))
+    x = cx + dx0 + (dx1 - dx0) * k
+    y = cy + dy0 + (dy1 - dy0) * k
+    # nunca mostrar a borda do cenário: limita o centro ao que o zoom permite
+    x = min(max(x, 500 / z), W - 580 / z)
+    y = min(max(y, 760 / z), H - 1160 / z)
+    c.translate(500, 760); c.scale(z, z); c.translate(-x, -y)
 
 
 # ------------------------------------------------ caches de fundo
@@ -249,7 +254,7 @@ SEASONS = ['verao', 'outono', 'inverno']
 
 def s_seasons(c, u, d, t):
     seg = min(2, int(u / (d / 3)))
-    c.save(); cam(c, u, d, 1.06, 1.06, cx=650, cy=760)
+    c.save(); cam(c, u, d, 1.12, 1.12, cx=600, cy=760)
     img(c, cached('room_' + SEASONS[seg], lambda c: window_room(c, SEASONS[seg], 0)))
     pl.SCALE[0] = 1
     # pardal: pousa, espia o pote, vai embora decepcionado (😄)
@@ -409,7 +414,7 @@ def build_shots():
     A = [
         (0.0, s_cover, 'abertura: imperador passa e sorri para o vaso vazio', ''),
         (W_('só', 1), s_ots_smile, 'close: o sorriso do imperador', ''),
-        (W_('um', 2) - 0.1, s_garden, 'um ano antes: tudo floresce', 'page'),
+        (W_('um', 3) - 0.1, s_garden, 'um ano antes: tudo floresce', 'page'),
         (W_('o', 1) if False else W_('imperador', 2) - 0.25, s_plaza, 'praça: o imperador sem filhos', 'tear_r'),
         (W_('deu', 1), s_seed, 'close: a semente', ''),
         (W_('quem', 1) - 0.15, s_emperor_speaks, 'contra-plongée: o concurso', ''),
