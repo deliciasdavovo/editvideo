@@ -7,7 +7,8 @@ A = os.path.join(HERE, 'audio')
 
 # (arquivo, quem fala, texto, pausa ANTES do bloco)
 BLOCKS = [
-    ('narr_b1b2_v2', 'narrador', 'Cem crianças trouxeram flores lindas ao imperador, e ele não sorriu para nenhuma. Só sorriu para um menino que chorava com um vaso vazio. Esse é o fim da história de Ping. Um ano antes, tudo que Ping plantava florescia. O imperador era velho, sem filhos, e amava flores. Por isso, deu uma semente a cada criança.', 0.15),
+    ('narr_b1_novo', 'narrador', 'Ping fazia qualquer planta florir. Mas a semente mais importante da vida dele não quis nascer.', 0.15),
+    ('narr_b2_novo', 'narrador', 'O imperador era velho, sem filhos, e amava flores. Por isso, deu uma semente a cada criança.', 0.75),
     ('imp_b2_v2', 'imperador', 'Quem me trouxer a flor mais bonita em um ano será o próximo imperador.', 0.4),
     ('narr_b3', 'narrador', 'Ping plantou e regou todo dia. Nada nasceu. Trocou a terra. Nada. Passou para um vaso maior. Nada.', 0.55),
     ('narr_b4a', 'narrador', 'Na primavera, as crianças passaram com flores enormes. Ping teve vergonha.', 0.55),
@@ -22,7 +23,9 @@ BLOCKS = [
 ]
 TAIL = 0.45
 # pausas internas especiais: (bloco, fim do trecho aprox.) -> pausa
-SPECIAL = {('narr_b1b2_v2', 12.86): 0.75}
+SPECIAL = {}
+# palavras por trecho de fala, quando a distribuição automática erra (conferido no silencedetect)
+OVERRIDE = {'narr_b1_novo': [5, 10, 1]}
 
 
 def load(p):
@@ -30,7 +33,7 @@ def load(p):
     return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32), sr
 
 
-def segments(p, d=0.18):
+def segments(p, d=0.28):
     out = subprocess.run(['ffmpeg', '-hide_banner', '-i', p, '-af', f'silencedetect=n=-40dB:d={d}', '-f', 'null', '-'],
                          capture_output=True, text=True).stderr
     ev = [(m.group(1), float(m.group(2))) for m in re.finditer(r'silence_(start|end): ([0-9.]+)', out)]
@@ -74,6 +77,8 @@ def main():
                 si += 1
             elif si < len(segs) - 1 and acc >= cum_target[si] + 2.5:
                 si += 1
+        if name in OVERRIDE and len(OVERRIDE[name]) == len(segs):
+            assign = [k for k, n_ in enumerate(OVERRIDE[name]) for _ in range(n_)]
         # caso sobrem trechos sem palavra, funde-os ao anterior
         pad = 0.03
         for k, (a, b) in enumerate(segs):

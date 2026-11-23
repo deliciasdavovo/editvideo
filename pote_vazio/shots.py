@@ -409,28 +409,60 @@ def s_end(c, u, d, t):
     img(c, cached('front_pots', lambda c: sc.blurred(c, lambda c: front_pots(c, (40, 270, 740, 990)), 9)))
 
 
+def s_open(c, u, d, t):
+    """Capa: Ping, o menino que faz tudo florir, encara o vaso vazio; lá fora passam flores enormes."""
+    c.save(); cam(c, u, d, 1.0, 1.08, cx=500, cy=800)
+    pl.STYLE['light'] = (-0.75, -0.66)
+    img(c, cached('open_room', lambda c: sc.house_bg(c)))
+    sc.window(c, 380, 170, 1060, 850, outside=lambda c: (c.save(), c.translate(-160 * ease(u / d), 0), outside_parade(c), c.restore()))
+    sc.beam(c, 620, 480, 1600, 420, 760, a=0.24)
+    nod = 3 * ease((u - 1.2) / 0.4)
+    draw_char(c, ch.ping, 380, 1560, 3.0, expr='decepcionado', pose='hold_pot', face=dict(nod=nod, blink=1.0 if 2.6 < u < 2.7 else 0.0))
+    sc.dust(c, 420, 450, 1000, 1350, n=40, t=t, seed=5, a=0.5)
+    pl.STYLE['light'] = (-0.55, -0.83)
+    c.restore()
+
+
+def s_empty_soil(c, u, d, t):
+    """Close de cima: a terra do vaso, regada, e nada."""
+    c.save(); cam(c, u, d, 1.06, 1.16, cx=500, cy=760)
+    img(c, cached('room_floor', lambda c: sc.house_bg(c)), blur=8)
+    pl.SCALE[0] = 1.0
+    P = ch.POT
+    pl.layer(c, pl.ell(500, 780, 420, 300), P['rim'], depth=0.5)
+    pl.layer(c, pl.ell(500, 790, 370, 255), P['earth'], depth=0.05, rim=False)
+    rnd = random.Random(11)
+    for i in range(80):
+        pl.flat(c, pl.circ(500 + rnd.uniform(-330, 330), 790 + rnd.uniform(-220, 220), rnd.uniform(2, 6)), pl.mul(P['earth'], 0.7), 0.7)
+    # gotas caindo e escurecendo a terra
+    for i in range(6):
+        y = 200 + ((t * 700 + i * 140) % 560)
+        pl.flat(c, pl.ell(420 + i * 30, y, 7, 11), (170, 210, 236), 0.9)
+    pl.flat(c, pl.ell(500, 800, 160 * ease(u / d), 90 * ease(u / d)), (40, 28, 20), 0.35, blur=10)
+    c.restore()
+
+
 # ------------------------------------------------ lista de planos ancorada nas palavras
 def build_shots():
     A = [
-        (0.0, s_cover, 'abertura: imperador passa e sorri para o vaso vazio', ''),
-        (W_('só', 1), s_ots_smile, 'close: o sorriso do imperador', ''),
-        (W_('um', 3) - 0.1, s_garden, 'um ano antes: tudo floresce', 'page'),
-        (W_('o', 1) if False else W_('imperador', 2) - 0.25, s_plaza, 'praça: o imperador sem filhos', 'tear_r'),
+        (0.0, s_open, 'abertura: o vaso vazio de quem faz tudo florir', ''),
+        (W_('mas', 1) - 0.1, s_empty_soil, 'close: a terra que não brota', ''),
+        (W_('imperador', 1) - 0.35, s_plaza, 'praça: o imperador sem filhos', 'tear_r'),
         (W_('deu', 1), s_seed, 'close: a semente', ''),
         (W_('quem', 1) - 0.15, s_emperor_speaks, 'contra-plongée: o concurso', ''),
-        (W_('ping', 3) - 0.2, s_water, 'Ping planta e rega', 'sheet'),
+        (W_('ping', 2) - 0.2, s_water, 'Ping planta e rega', 'sheet'),
         (W_('nada', 1), s_seasons, 'janela: estações + pardal 😄', ''),
         (W_('passou', 1), s_big_pot, 'o vaso enorme 😄', ''),
         (W_('na', 1) - 0.2, s_parade, 'o desfile pela janela: vergonha', 'iris'),
         (W_('pai', 1) - 0.15, s_ping_pai, 'Ping pede ao pai', ''),
-        (W_('mas', 1) - 0.1, s_pai_hand, 'a mão do pai no ombro', ''),
+        (W_('mas', 2) - 0.1, s_pai_hand, 'a mão do pai no ombro', ''),
         (W_('então', 1) - 0.2, s_palace_wide, 'palácio: o vaso vazio no mar de cor', 'popup'),
-        (W_('imperador', 4) - 0.1, s_emperor_walk, 'o imperador de testa franzida', ''),
+        (W_('imperador', 3) - 0.1, s_emperor_walk, 'o imperador de testa franzida', ''),
         (W_('por', 2) - 0.1, s_emperor_asks, 'a pergunta', ''),
         (W_('eu', 2) - 0.25, s_ping_answer, 'a verdade (sobre o ombro)', ''),
         (W_('eu', 3) - 0.45, s_reveal, 'a revelação', ''),
         (W_('as', 3) - 0.15, s_climax, 'clímax: as flores perdem a cor', ''),
-        (W_('o', 6) - 0.2 if False else W_('menino', 2) - 0.3, s_end, 'fim: o menino do vaso vazio', 'tear_l'),
+        (W_('o', 6) - 0.2 if False else W_('menino', 1) - 0.3, s_end, 'fim: o menino do vaso vazio', 'tear_l'),
     ]
     out = []
     for i, (s0, fn, label, trans) in enumerate(A):
